@@ -6,9 +6,9 @@
 ---
 ## Print Wireframe
 
-![Print do Wireframe](cod-invest-project\public\assets\images\wireframeCODinvest.png)
+![Print do Wireframe](public\assets\images\wireframeCODinvest.png)
 
 ---
 ## Print da tela
 
-![Print da tela home](cod-invest-project\public\assets\images\img1_cod.png)
+![Print da tela home](public\assets\images\img1_cod.png)
