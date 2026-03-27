@@ -1,0 +1,295 @@
+/* =======================================================
+   PALETA DE CORES COD INVEST (Variáveis)
+   ======================================================= */
+:root {
+    --azul-profundo: #020659;
+    --azul-ardosia: #1D3D59;
+    --dourado-escuro: #B0944E;
+    --dourado-claro: #D9B573;
+    --verde-oceano: #204953;
+    --fundo-pagina: #f4f6f8;
+    --cor-texto: #333333;
+}
+
+/* =======================================================
+   RESET BÁSICO (Box-model global)
+   ======================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--fundo-pagina);
+    color: var(--cor-texto);
+}
+
+/* =======================================================
+   CABEÇALHO E NAVEGAÇÃO (Fundo Azul + Logo com Contraste)
+   ======================================================= */
+.cabecalho-principal {
+    background-color: var(--azul-profundo);
+    color: #ffffff;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: flex-start;
+    /* MUDA AQUI: Alinha tudo à esquerda */
+    align-items: center;
+    gap: 50px;
+    /* NOVO: Espaçamento fixo entre logo, busca e menu */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Container da Logo */
+.cabecalho-principal .logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.cabecalho-principal .logo img {
+    height: 120px;
+    object-fit: contain;
+
+}
+
+/* Título Cod Invest chique no fundo azul */
+.titulo-logo {
+    display: block;
+    font-size: 32px;
+    font-weight: 700;
+    color: #ffffff;
+    /* 'Invest' fica branco */
+    letter-spacing: 0.5px;
+}
+
+/* A CLASSE DOURADO (Aplicada no HTML via span para o 'Cod') */
+.cabecalho-principal .logo .dourado {
+    color: var(--dourado-claro);
+}
+
+/* =======================================================
+   ALINHAMENTO DO CENTRO DO CABEÇALHO (Busca e Menu)
+   ======================================================= */
+.busca-pequena {
+    flex: 0 350px;
+    /* Mantém a largura */
+    /* REMOVA as linhas de margin-left e margin-right que estavam aqui */
+}
+
+.input-busca-pequena {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: 1px solid var(--azul-ardosia);
+    background-color: var(--azul-ardosia);
+    color: var(--dourado-claro);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input-busca-pequena::placeholder {
+    color: rgba(217, 181, 115, 0.7);
+}
+
+.input-busca-pequena:focus {
+    border-color: var(--dourado-claro);
+    box-shadow: 0 0 10px rgba(217, 181, 115, 0.3);
+}
+
+/* =======================================================
+   O MENU MAIOR E CENTRALIZADO
+   ======================================================= */
+.menu-principal {
+   
+    margin-right: auto; /* Empurra os ícones de usuário para a extrema direita */
+}
+
+.menu-principal ul {
+    list-style: none;
+    display: flex;
+    gap: 50px; /* AUMENTADO: Mais respiro entre as opções (Home, FIIs, etc) */
+}
+
+.menu-principal a {
+    color: #ffffff; 
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 20px; /* AUMENTADO: Letras maiores, chamando mais atenção */
+    transition: color 0.3s ease;
+    letter-spacing: 1.0px; /* Leve espaçamento chique entre as letras */
+}
+
+.menu-principal a:hover {
+    color: var(--dourado-claro); 
+}
+
+/* =======================================================
+   ÍCONES DO USUÁRIO
+   ======================================================= */
+.icones-usuario {
+    display: flex;
+    gap: 20px;
+    font-size: 24px; /* Aumentamos os ícones um pouquinho para acompanhar */
+    cursor: pointer;
+    color: #ffffff; 
+    /* Removemos o margin-left que estava aqui, pois o menu já empurra! */
+}
+
+/* =======================================================
+   CONTEÚDO PRINCIPAL (Main - Agora mais largo)
+   ======================================================= */
+main {
+    max-width: 1600px;
+    max-height: 800;
+    /* AUMENTADO: Preenche melhor a tela */
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+h2 {
+    color: var(--azul-profundo);
+    margin-bottom: 25px;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.titulo-oculto {
+    text-align: center;
+}
+
+/* =======================================================
+   SEÇÃO DE PESQUISA PRINCIPAL (Formulário)
+   ======================================================= */
+.secao-pesquisa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.formulario-busca {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    max-width: 800px;
+    /* AUMENTADO: Acompanha o novo tamanho do site */
+}
+
+.campo-drop,
+.barra-busca {
+    padding: 12px 18px;
+    border: 2px solid var(--azul-ardosia);
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    background-color: white;
+}
+
+.barra-busca {
+    flex: 1;
+}
+
+.botao-busca {
+    padding: 12px 28px;
+    background-color: var(--azul-profundo);
+    color: var(--dourado-claro);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.botao-busca:hover {
+    background-color: var(--dourado-escuro);
+    color: white;
+}
+
+/* =======================================================
+   INDICADORES E CARDS GERAIS (Display Flex)
+   ======================================================= */
+.secao-indicadores,
+.secao-destaques,
+.secao-noticias {
+    margin-bottom: 60px;
+}
+
+.grade-indicadores,
+.grade-artigos {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* =======================================================
+   ESTILO DOS CARDS (Box-model e Position)
+   ======================================================= */
+.card-indicador {
+    background-color: #ffffff;
+    padding: 25px 15px;
+    border-radius: 8px;
+    flex: 1;
+    text-align: center;
+    border-bottom: 4px solid var(--verde-oceano);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.card-indicador strong {
+    color: var(--azul-profundo);
+    font-size: 18px;
+}
+
+.artigo-card {
+    background-color: #ffffff;
+    padding: 18px;
+    border-radius: 8px;
+    flex: 1;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.artigo-card:hover {
+    transform: translateY(-5px);
+    border-bottom: 3px solid var(--dourado-claro);
+}
+
+.artigo-card img {
+    width: 100%;
+    height: 140px;
+    border-radius: 4px;
+    margin-bottom: 18px;
+    object-fit: cover;
+}
+
+.artigo-card h3 {
+    color: var(--azul-profundo);
+    margin-bottom: 10px;
+    font-size: 19px;
+}
+
+.artigo-card p {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* =======================================================
+   RODAPÉ
+   ======================================================= */
+.rodape-principal {
+    background-color: var(--azul-profundo);
+    color: var(--dourado-claro);
+    text-align: center;
+    padding: 25px;
+    margin-top: 50px;
+    border-top: 5px solid var(--dourado-escuro);
+}
