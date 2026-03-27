@@ -11,4 +11,7 @@
 ---
 ## Print da tela
 
-![Print da tela home](./public/assets/images/img1_cod.png)
+![Print1  da tela home](./public/assets/images/img1_cod.png)
+![Print2 da tela home](./public/assets/images/img2_cod.png)
+
+
