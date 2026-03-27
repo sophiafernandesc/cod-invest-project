@@ -1,11 +1,14 @@
 
-# Trabalho Prático - Semana 5
-
 ## Informações Gerais
-- Nome: Sophia da Costa Fernandes<br>
-- Matricula: 844086
 - proposta de projeto escolhida: Cod Invest
 - breve descrição: Website para consultas de cotações e notícias de fundos imobiliários. Benchmarking: status invest e corretora Rico (XP inc.)
-## Print da tela da página criada (Wireframe)
+  
+---
+## Print Wireframe
 
-![Print da tela do Curriculum Vitae](public\assets\images\wireframeCODinvest.png)
+![Print do Wireframe](cod-invest-project\public\assets\images\wireframeCODinvest.png)
+
+---
+## Print da tela
+
+![Print da tela home](cod-invest-project\public\assets\images\img1_cod.png)
