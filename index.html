@@ -4,8 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cod Invest - O seu Painel de FIIs</title>
+    <link rel="icon" type="image/png" href="public/assets/images/logo.png">
+    <title>Cod Invest - Painel de FIIs</title>
+
     <link rel="stylesheet" href="style.css">
+
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
@@ -14,9 +17,7 @@
 
     <header class="cabecalho-principal">
         <div class="logo">
-
-            <img src="public\assets\images\logo.png" alt="Logo Cod Invest">
-
+            <img src="public/assets/images/logo.png" alt="Logo Cod Invest">
             <h1 class="titulo-logo"><span class="dourado">Cod</span> Invest</h1>
         </div>
 
@@ -27,7 +28,15 @@
         <nav class="menu-principal">
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#">FIIs ˅</a></li>
+                <li class="dropdown">
+                    <a href="#">FIIs <span class="material-symbols-outlined dropdown-icon">expand_more</span></a>
+                    <ul class="dropdown-content">
+                        <li><a href="#">Tijolo</a></li>
+                        <li><a href="#">Papel</a></li>
+                        <li><a href="#">Híbrido</a></li>
+                        <li><a href="#">Fiagro</a></li>
+                    </ul>
+                </li>
                 <li><a href="#">Notícias</a></li>
                 <li><a href="#">Indicadores</a></li>
                 <li><a href="#">Sobre</a></li>
@@ -50,7 +59,8 @@
                     <option value="us">EUA (Exterior)</option>
                 </select>
                 <input type="text" placeholder="Search ticker" class="barra-busca">
-                <button type="submit" class="botao-busca"><span class="material-symbols-outlined">search</span>
+                <button type="submit" class="botao-busca">
+                    <span class="material-symbols-outlined">search</span>
                 </button>
             </form>
         </section>
@@ -73,31 +83,31 @@
                 <article class="artigo-card">
                     <img src="https://picsum.photos/id/1/200/150" alt="Fundo MXRF11">
                     <h3>MXRF11</h3>
-                    <p>Some text</p>
+                    <p>Fundo de recebíveis imobiliários com foco em CRIs.</p>
                 </article>
 
                 <article class="artigo-card">
                     <img src="https://picsum.photos/id/2/200/150" alt="Fundo XPCA11">
                     <h3>XPCA11</h3>
-                    <p>Some text</p>
+                    <p>Fiagro focado em cadeias produtivas agroindustriais.</p>
                 </article>
 
                 <article class="artigo-card">
                     <img src="https://picsum.photos/id/3/200/150" alt="Fundo BTCI11">
                     <h3>BTCI11</h3>
-                    <p>Some text</p>
+                    <p>Fundo focado em ativos de crédito imobiliário de alta qualidade.</p>
                 </article>
 
                 <article class="artigo-card">
                     <img src="https://picsum.photos/id/4/200/150" alt="Fundo HGLG11">
                     <h3>HGLG11</h3>
-                    <p>Some text</p>
+                    <p>Um dos maiores fundos de logística do mercado brasileiro.</p>
                 </article>
 
                 <article class="artigo-card">
                     <img src="https://picsum.photos/id/5/200/150" alt="Fundo KNCR11">
                     <h3>KNCR11</h3>
-                    <p>Some text</p>
+                    <p>Fundo de papel gerido pela Kinea com foco em CDI.</p>
                 </article>
             </div>
         </section>
@@ -107,27 +117,27 @@
             <div class="grade-artigos">
                 <article class="artigo-card">
                     <img src="https://picsum.photos/id/11/200/150" alt="Notícia 1">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed</p>
+                    <p>Selic mantém estabilidade e favorece novos aportes em FIIs de tijolo.</p>
                 </article>
 
                 <article class="artigo-card">
                     <img src="https://picsum.photos/id/12/200/150" alt="Notícia 2">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed</p>
+                    <p>Relatório Focus indica leve queda na inflação para o próximo semestre.</p>
                 </article>
 
                 <article class="artigo-card">
                     <img src="https://picsum.photos/id/13/200/150" alt="Notícia 3">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed</p>
+                    <p>Novos IPOs de Fiagros agitam o mercado de renda variável.</p>
                 </article>
 
                 <article class="artigo-card">
                     <img src="https://picsum.photos/id/14/200/150" alt="Notícia 4">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed</p>
+                    <p>Entenda o impacto da reforma tributária nos dividendos mensais.</p>
                 </article>
 
                 <article class="artigo-card">
                     <img src="https://picsum.photos/id/15/200/150" alt="Notícia 5">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed</p>
+                    <p>Vacância em escritórios de alto padrão em SP atinge mínima histórica.</p>
                 </article>
             </div>
         </section>
