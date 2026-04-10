@@ -7,16 +7,14 @@
 
 O mercado de Fundos Imobiliários (FIIs) exige rapidez e clareza. O Cod Invest nasce para transformar a complexidade dos indicadores financeiros em uma experiência visual intuitiva e responsiva. Mais do que um dashboard, é uma central de comando para o investidor moderno que busca monitorar proventos, notícias e oscilações do mercado em tempo real, sem perder o foco no que realmente importa: a rentabilidade.
   
----
-## Print Wireframe
 
-![Print do Wireframe](./public/assets/images/wireframeCODinvest.png)
+## Print da versão responsiva com Bootstrap
 
----
-## Print da tela
+![Ipad Air](./public/assets/images/bootstrap-ipad-air.png)
 
-![Print1  da tela home](./public/assets/images/img1_cod.png)
-![Print2 da tela home](./public/assets/images/img2_cod.png)
-![Print3 da tela home](./public/assets/images/img3_cod.png)
+![Web](./public/assets/images/bootstrap-web.png)
+
+![Z fold 5](./public/assets/images/bootstrap-z-fold-5.png)
+
 
 
