@@ -1,6 +1,7 @@
+## COD Invest
+Um painel de controle responsivo e intuitivo para o investidor focado em Fundos Imobiliários (FIIs).
 
 ## Informações Gerais
-- proposta de projeto escolhida: Coleções e Itens
 - breve descrição: Website para consultas de cotações e notícias de fundos imobiliários. Benchmarking: status invest e corretora Rico (XP inc.)
   
 ---
@@ -10,11 +11,9 @@ O mercado de Fundos Imobiliários (FIIs) exige rapidez e clareza. O Cod Invest n
 
 ## Print da versão responsiva com Bootstrap
 
-![Ipad Air](./public/assets/images/bootstrap-ipad-air.png)
-
-![Web](./public/assets/images/bootstrap-web.png)
-
-![Z fold 5](./public/assets/images/bootstrap-z-fold-5.png)
+| Web (Notebook) | Tablet (iPad Air) | Mobile (Galaxy Fold 5) |
+| :---: | :---: | :---: |
+| ![Web](./public/assets/images/bootstrap-web.png) | ![Ipad Air](./public/assets/images/bootstrap-ipad-air.png) | ![Z fold 5](./public/assets/images/bootstrap-z-fold-5.png) |
 
 
 
