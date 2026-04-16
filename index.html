@@ -20,31 +20,28 @@
 
     <header class="cabecalho-principal sticky-top">
         <!-- Bootstrap Navbar: expande em telas "lg" (≥992px), colapsa em menores -->
-        <nav class="navbar navbar-expand-lg w-100 px-4">
+        <nav class="navbar navbar-expand-lg w-100 px-3">
 
-            <!-- Logo / Brand -->
-            <a class="navbar-brand logo d-flex align-items-center gap-3" href="#">
+            <!-- Botão hamburguer: canto esquerdo no mobile, oculto no desktop -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral"
+                aria-controls="menuLateral" aria-expanded="false" aria-label="Abrir menu">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+
+            <!-- Logo / Brand: centralizada no mobile via CSS, à esquerda no desktop -->
+            <a class="navbar-brand logo d-flex align-items-center gap-2" href="#">
                 <img src="public/assets/images/logo.png" alt="Logo Cod Invest">
                 <h1 class="titulo-logo"><span class="dourado">Cod</span> Invest</h1>
             </a>
 
-            <!-- ms-auto empurra para a direita em mobile; order-lg-last e ms-lg-0 reposicionam no desktop -->
-            <div class="icones-usuario d-flex align-items-center gap-3 ms-auto me-2 order-lg-last ms-lg-0">
+            <!-- Ícone de perfil: canto direito no mobile (oculto no desktop, aparece dentro do collapse) -->
+            <div class="icones-usuario d-flex align-items-center d-lg-none">
                 <span class="material-symbols-outlined">account_circle</span>
             </div>
 
-            <!-- Botão hamburguer (mobile only) -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarPrincipal"
-                aria-controls="navbarPrincipal" aria-expanded="false" aria-label="Abrir menu">
-                <span class="material-symbols-outlined">menu</span>
-            </button>
-
+            <!-- Links do desktop (auto-expandido em lg pelo navbar-expand-lg) -->
             <div class="collapse navbar-collapse" id="navbarPrincipal">
-
-                <!-- Wrapper centralizado no desktop (mx-auto distribui espaço igual antes e depois) -->
-                <!-- Em mobile é block: cada filho ocupa a largura total e empilha -->
-                <div class="d-lg-flex align-items-center gap-3 mx-auto py-2 py-lg-0">
-
+                <div class="d-flex align-items-center gap-3 mx-auto">
                     <div class="busca-pequena d-none d-lg-block">
                         <input type="text" placeholder="Search" class="input-busca-pequena">
                     </div>
@@ -70,11 +67,49 @@
                         <li class="nav-item"><a href="#" class="nav-link">Indicadores</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">Sobre</a></li>
                     </ul>
+                </div>
 
+                <!-- Ícone de perfil no desktop (dentro do collapse, alinhado à direita) -->
+                <div class="icones-usuario d-none d-lg-flex align-items-center gap-3">
+                    <span class="material-symbols-outlined">account_circle</span>
                 </div>
             </div>
         </nav>
     </header>
+
+    <!-- Offcanvas: menu lateral (abre pela esquerda no mobile) -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="menuLateral" aria-labelledby="menuLateralLabel">
+        <div class="offcanvas-header">
+            <a class="logo d-flex align-items-center gap-2 text-decoration-none" href="#">
+                <img src="public/assets/images/logo.png" alt="Logo Cod Invest" style="height:40px;">
+                <span class="titulo-logo"><span class="dourado">Cod</span> Invest</span>
+            </a>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="busca-pequena mb-4">
+                <input type="text" placeholder="Search" class="input-busca-pequena w-100">
+            </div>
+            <ul class="navbar-nav menu-principal flex-column gap-1">
+                <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+                        aria-expanded="false">FIIs</a>
+                    <ul class="dropdown-menu dropdown-content">
+                        <li><a href="#" class="dropdown-item">Tijolo</a></li>
+                        <li><a href="#" class="dropdown-item">Papel</a></li>
+                        <li><a href="#" class="dropdown-item">Híbrido</a></li>
+                        <li><a href="#" class="dropdown-item">Fiagro</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item"><a href="#" class="nav-link">Notícias</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Indicadores</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Sobre</a></li>
+            </ul>
+        </div>
+    </div>
 
     <main>
 
@@ -107,26 +142,13 @@
         <!-- Seção: Indicadores de Mercado -->
         <section class="secao-indicadores">
             <h2>Indicadores de Mercado</h2>
-            <!-- row g-3: grid Bootstrap com gap; col-12 mobile, col-sm-6 tablet, col-lg-2 desktop (6 colunas) -->
-            <div class="row g-3">
-                <div class="col-12 col-sm-6 col-lg-2">
-                    <div class="card-indicador"><strong>Dólar</strong><br>R$ 5,00</div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-2">
-                    <div class="card-indicador"><strong>Ibovespa</strong><br>130.000 pts</div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-2">
-                    <div class="card-indicador"><strong>CDI</strong><br>10,40% a.a.</div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-2">
-                    <div class="card-indicador"><strong>DOW JONES</strong><br>39.000 pts</div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-2">
-                    <div class="card-indicador"><strong>SP&500</strong><br>5.100 pts</div>
-                </div>
-                <div class="col-12 col-sm-6 col-lg-2">
-                    <div class="card-indicador"><strong>Ouro</strong><br>+1.2%</div>
-                </div>
+            <div class="indicadores-scroll">
+                <div class="card-indicador"><strong>Dólar</strong><br>R$ 5,00</div>
+                <div class="card-indicador"><strong>Ibovespa</strong><br>130.000 pts</div>
+                <div class="card-indicador"><strong>CDI</strong><br>10,40% a.a.</div>
+                <div class="card-indicador"><strong>DOW JONES</strong><br>39.000 pts</div>
+                <div class="card-indicador"><strong>SP&500</strong><br>5.100 pts</div>
+                <div class="card-indicador"><strong>Ouro</strong><br>+1.2%</div>
             </div>
         </section>
 
