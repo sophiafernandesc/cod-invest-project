@@ -185,17 +185,40 @@ h2 {
 }
 
 /* =======================================================
-   CARDS DE INDICADORES
-   Largura controlada pelo Bootstrap: col-12 / col-sm-6 / col-lg-2
+   INDICADORES DE MERCADO — scroll horizontal
    ======================================================= */
+.indicadores-scroll {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
+}
+
+/* Scrollbar fina e estilizada */
+.indicadores-scroll::-webkit-scrollbar {
+    height: 4px;
+}
+
+.indicadores-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.indicadores-scroll::-webkit-scrollbar-thumb {
+    background: var(--dourado-escuro);
+    border-radius: 2px;
+}
+
 .card-indicador {
     background-color: #ffffff;
-    padding: 25px 15px;
+    padding: 25px 20px;
     border-radius: 8px;
     text-align: center;
     border-bottom: 4px solid var(--verde-oceano);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    height: 100%;
+    min-width: 160px;
+    flex: 1 0 160px;
+    scroll-snap-align: start;
 }
 
 /* =======================================================
@@ -240,6 +263,48 @@ h2 {
     .titulo-logo {
         font-size: 20px;
     }
+
+    /* Centraliza a logo no mobile usando posicionamento absoluto */
+    .navbar {
+        position: relative;
+    }
+
+    .navbar-brand {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+/* =======================================================
+   MENU LATERAL (OFFCANVAS)
+   ======================================================= */
+#menuLateral {
+    background-color: var(--azul-profundo);
+    color: #ffffff;
+    max-width: 280px;
+}
+
+#menuLateral .offcanvas-header {
+    border-bottom: 1px solid var(--dourado-escuro);
+    padding: 16px 20px;
+}
+
+#menuLateral .btn-close {
+    filter: invert(1) brightness(1.5);
+    opacity: 0.8;
+}
+
+#menuLateral .btn-close:hover {
+    opacity: 1;
+}
+
+#menuLateral .offcanvas-body {
+    padding: 20px;
+}
+
+#menuLateral .busca-pequena {
+    max-width: 100%;
 }
 
 .rodape-principal {
