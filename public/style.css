@@ -301,10 +301,21 @@ h2 {
 
 #menuLateral .offcanvas-body {
     padding: 20px;
+    overflow-y: auto;
 }
 
 #menuLateral .busca-pequena {
     max-width: 100%;
+}
+
+/* Dropdown estático dentro do offcanvas (evita corte pelo overflow) */
+#menuLateral .dropdown-menu {
+    position: static;
+    transform: none !important;
+    box-shadow: none;
+    border: none;
+    padding-left: 12px;
+    margin-top: 4px;
 }
 
 .rodape-principal {
