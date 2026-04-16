@@ -276,6 +276,15 @@ h2 {
     }
 }
 
+/* Links do desktop centralizados em relação à navbar inteira */
+@media (min-width: 992px) {
+    .nav-links-center {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
 /* =======================================================
    MENU LATERAL (OFFCANVAS)
    ======================================================= */
