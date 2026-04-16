@@ -308,14 +308,32 @@ h2 {
     max-width: 100%;
 }
 
-/* Dropdown estático dentro do offcanvas (evita corte pelo overflow) */
-#menuLateral .dropdown-menu {
-    position: static;
-    transform: none !important;
-    box-shadow: none;
-    border: none;
+/* Submenu inline do offcanvas (collapse) */
+.submenu-lateral {
     padding-left: 12px;
     margin-top: 4px;
+    border-left: 2px solid var(--dourado-escuro);
+}
+
+.submenu-lateral .nav-link {
+    color: #ffffffcc;
+    font-size: 15px;
+    padding: 6px 8px;
+}
+
+.submenu-lateral .nav-link:hover {
+    color: var(--dourado-claro);
+}
+
+/* Rotaciona o chevron quando o submenu está aberto */
+.nav-link[aria-expanded="true"] .icone-chevron {
+    transform: rotate(180deg);
+}
+
+.icone-chevron {
+    font-size: 20px !important;
+    transition: transform 0.2s ease;
+    color: var(--dourado-claro);
 }
 
 .rodape-principal {

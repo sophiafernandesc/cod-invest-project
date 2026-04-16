@@ -93,15 +93,20 @@
             <ul class="navbar-nav menu-principal flex-column gap-1">
                 <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
 
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
-                        data-bs-display="static" aria-expanded="false">FIIs</a>
-                    <ul class="dropdown-menu dropdown-content">
-                        <li><a href="#" class="dropdown-item">Tijolo</a></li>
-                        <li><a href="#" class="dropdown-item">Papel</a></li>
-                        <li><a href="#" class="dropdown-item">Híbrido</a></li>
-                        <li><a href="#" class="dropdown-item">Fiagro</a></li>
-                    </ul>
+                <li class="nav-item">
+                    <a href="#" class="nav-link d-flex justify-content-between align-items-center"
+                        data-bs-toggle="collapse" data-bs-target="#fiisSubmenu" aria-expanded="false">
+                        FIIs
+                        <span class="material-symbols-outlined icone-chevron">expand_more</span>
+                    </a>
+                    <div class="collapse" id="fiisSubmenu">
+                        <ul class="list-unstyled submenu-lateral">
+                            <li><a href="#" class="nav-link">Tijolo</a></li>
+                            <li><a href="#" class="nav-link">Papel</a></li>
+                            <li><a href="#" class="nav-link">Híbrido</a></li>
+                            <li><a href="#" class="nav-link">Fiagro</a></li>
+                        </ul>
+                    </div>
                 </li>
 
                 <li class="nav-item"><a href="#" class="nav-link">Notícias</a></li>
