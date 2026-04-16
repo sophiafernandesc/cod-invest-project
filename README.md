@@ -15,5 +15,5 @@ O mercado de Fundos Imobiliários (FIIs) exige rapidez e clareza. O Cod Invest n
 
 ![Mobile](./public/assets/images/cod-invest-galaxy-s20-ultra.png)
 
-![Menu](./public/assets/images/menu-hamburguer.png.png) 
+![Menu](./public/assets/images/menu-hamburguer.png) 
 
