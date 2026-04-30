@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+
+    <header class="cabecalho-principal sticky-top">
+        <nav class="navbar navbar-expand-lg w-100 px-3">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral"
+                aria-controls="menuLateral" aria-expanded="false" aria-label="Abrir menu">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+
+            <a class="navbar-brand logo d-flex align-items-center gap-2" href="index.html">
+                <img src="assets/images/logo.png" alt="Logo Cod Invest">
+                <h1 class="titulo-logo"><span class="dourado">Cod</span> Invest</h1>
+            </a>
+
+            <div class="icones-usuario d-flex align-items-center d-lg-none">
+                <span class="material-symbols-outlined">account_circle</span>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbarPrincipal">
+                <div class="d-flex align-items-center gap-3 nav-links-center">
+                    <div class="busca-pequena d-none d-lg-block">
+                        <input type="text" placeholder="Search" class="input-busca-pequena">
+                    </div>
+
+                    <ul class="navbar-nav menu-principal gap-lg-4">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+                                aria-expanded="false">FIIs</a>
+                            <ul class="dropdown-menu dropdown-content">
+                                <li><a href="#" class="dropdown-item">Tijolo</a></li>
+                                <li><a href="#" class="dropdown-item">Papel</a></li>
+                                <li><a href="#" class="dropdown-item">Híbrido</a></li>
+                                <li><a href="#" class="dropdown-item">Fiagro</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a href="#" class="nav-link">Notícias</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Indicadores</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Sobre</a></li>
+                    </ul>
+                </div>
+
+                <div class="icones-usuario d-none d-lg-flex align-items-center gap-3 ms-auto">
+                    <span class="material-symbols-outlined">account_circle</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="menuLateral" aria-labelledby="menuLateralLabel">
+        <div class="offcanvas-header">
+            <a class="logo d-flex align-items-center gap-2 text-decoration-none" href="index.html">
+                <img src="assets/images/logo.png" alt="Logo Cod Invest" style="height:40px;">
+                <span class="titulo-logo"><span class="dourado">Cod</span> Invest</span>
+            </a>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav menu-principal flex-column gap-1">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link d-flex justify-content-between align-items-center"
+                        data-bs-toggle="collapse" data-bs-target="#fiisSubmenu" aria-expanded="false">
+                        FIIs
+                        <span class="material-symbols-outlined icone-chevron">expand_more</span>
+                    </a>
+                    <div class="collapse" id="fiisSubmenu">
+                        <ul class="list-unstyled submenu-lateral">
+                            <li><a href="#" class="nav-link">Tijolo</a></li>
+                            <li><a href="#" class="nav-link">Papel</a></li>
+                            <li><a href="#" class="nav-link">Híbrido</a></li>
+                            <li><a href="#" class="nav-link">Fiagro</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="#" class="nav-link">Notícias</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Indicadores</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Sobre</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <main class="container py-5">
+
+        <a href="index.html" class="btn-voltar d-inline-flex align-items-center gap-1 mb-4">
+            <span class="material-symbols-outlined">arrow_back</span>
+            Voltar
+        </a>
+
+        <div class="card-detalhe row g-4 align-items-start">
+
+            <div class="col-12 col-md-5">
+                <img id="detalhe-imagem" src="" alt="" class="img-detalhe w-100">
+            </div>
+
+            <div class="col-12 col-md-7 d-flex flex-column gap-3">
+                <h2 id="detalhe-titulo"></h2>
+                <span id="detalhe-setor" class="setor-badge"></span>
+                <p id="detalhe-descricao"></p>
+
+                <div class="indicadores-detalhe">
+                    <div class="indicador-item">
+                        <span class="indicador-label">Cotação</span>
+                        <span id="detalhe-cotacao" class="indicador-valor"></span>
+                    </div>
+                    <div class="indicador-item">
+                        <span class="indicador-label">Dividend Yield</span>
+                        <span id="detalhe-dy" class="indicador-valor destaque-verde"></span>
+                    </div>
+                    <div class="indicador-item">
+                        <span class="indicador-label">P/VP</span>
+                        <span id="detalhe-pvp" class="indicador-valor"></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="rodape-principal">
+        <p>© 2026 Sophia Fernandes - PUC Minas</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+
+</body>
+
+</html>
