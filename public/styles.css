@@ -457,3 +457,105 @@ h2 {
     padding: 30px;
     border-top: 5px solid var(--dourado-escuro);
 }
+
+/* =======================================================
+   DETALHES — NOVOS ESTILOS
+   ======================================================= */
+
+.destaque-alerta {
+    color: #c0392b;
+}
+
+/* Card "Sobre o Fundo" */
+.card-info-fundo,
+.card-grafico {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 24px 28px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid var(--dourado-claro);
+}
+
+.card-info-titulo {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--azul-profundo);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.card-info-titulo .material-symbols-outlined {
+    font-size: 20px;
+    color: var(--dourado-claro);
+}
+
+.lista-info-fundo {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.lista-info-fundo li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.lista-info-fundo li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.info-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #999;
+}
+
+.info-valor {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--azul-profundo);
+}
+
+/* Seção FIIs relacionados */
+.secao-relacionados {
+    margin-top: 12px;
+}
+
+.secao-relacionados-titulo {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--azul-profundo);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--dourado-claro);
+    display: inline-block;
+}
+
+/* Mini indicadores no card relacionado */
+.card-indicadores-mini {
+    display: flex;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px solid #f0f0f0;
+    font-size: 0.82rem;
+    color: #555;
+}
+
+.card-indicadores-mini strong {
+    color: var(--azul-profundo);
+    margin-right: 3px;
+}

@@ -11,11 +11,15 @@ O mercado de Fundos Imobiliários (FIIs) exige rapidez e clareza. O Cod Invest n
 
 ## Print da versão com JS
 
-![Mobile](./public/img/v3-cards-iphone12.png) 
+![Web](./public/img/v4-home-page.png) 
 
-![Detalhes Mobile](./public/img/v3-detalhes-iphone12.png)
+![Web](./public/img/v4-detalhes.png)
 
-![Web](./public/img/v3-homepage.png) 
+![Mobile](./public/img/v4-home-page-iphone12.png) 
 
-![Web](./public/img/v3-detalhes.png) 
+![Mobile](./public/img/v4-detalhes1-iphone12.png)
+
+![Mobile](./public/img/v4-detalhes2-iphone12.png)
+
+
 

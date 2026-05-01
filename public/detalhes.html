@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes — Cod Invest</title>
     <link rel="icon" type="image/png" href="img/logo.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
@@ -15,27 +16,22 @@
 
     <header class="cabecalho-principal sticky-top">
         <nav class="navbar navbar-expand-lg w-100 px-3">
-
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral"
                 aria-controls="menuLateral" aria-expanded="false" aria-label="Abrir menu">
                 <span class="material-symbols-outlined">menu</span>
             </button>
-
             <a class="navbar-brand logo d-flex align-items-center gap-2" href="index.html">
                 <img src="img/logo.png" alt="Logo Cod Invest">
                 <h1 class="titulo-logo"><span class="dourado">Cod</span> Invest</h1>
             </a>
-
             <div class="icones-usuario d-flex align-items-center d-lg-none">
                 <span class="material-symbols-outlined">account_circle</span>
             </div>
-
             <div class="collapse navbar-collapse" id="navbarPrincipal">
                 <div class="d-flex align-items-center gap-3 nav-links-center">
                     <div class="busca-pequena d-none d-lg-block">
                         <input type="text" placeholder="Search" class="input-busca-pequena">
                     </div>
-
                     <ul class="navbar-nav menu-principal gap-lg-4">
                         <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
                         <li class="nav-item dropdown">
@@ -53,7 +49,6 @@
                         <li class="nav-item"><a href="#" class="nav-link">Sobre</a></li>
                     </ul>
                 </div>
-
                 <div class="icones-usuario d-none d-lg-flex align-items-center gap-3 ms-auto">
                     <span class="material-symbols-outlined">account_circle</span>
                 </div>
@@ -75,8 +70,7 @@
                 <li class="nav-item">
                     <a href="#" class="nav-link d-flex justify-content-between align-items-center"
                         data-bs-toggle="collapse" data-bs-target="#fiisSubmenu" aria-expanded="false">
-                        FIIs
-                        <span class="material-symbols-outlined icone-chevron">expand_more</span>
+                        FIIs <span class="material-symbols-outlined icone-chevron">expand_more</span>
                     </a>
                     <div class="collapse" id="fiisSubmenu">
                         <ul class="list-unstyled submenu-lateral">
@@ -101,17 +95,21 @@
             Voltar
         </a>
 
-        <div class="card-detalhe row g-4 align-items-start">
+        <!-- ── BLOCO PRINCIPAL ── -->
+        <div class="card-detalhe row g-4 align-items-start mb-4">
 
-            <div class="col-12 col-md-5">
+            <div class="col-12 col-md-4">
                 <img id="detalhe-imagem" src="" alt="" class="img-detalhe w-100">
             </div>
 
-            <div class="col-12 col-md-7 d-flex flex-column gap-3">
-                <h2 id="detalhe-titulo"></h2>
-                <span id="detalhe-setor" class="setor-badge"></span>
-                <p id="detalhe-descricao"></p>
+            <div class="col-12 col-md-8 d-flex flex-column gap-3">
+                <div class="d-flex align-items-center gap-3 flex-wrap">
+                    <h2 id="detalhe-titulo"></h2>
+                    <span id="detalhe-setor" class="setor-badge"></span>
+                </div>
+                <p id="detalhe-descricao" class="mb-0"></p>
 
+                <!-- Indicadores Principais -->
                 <div class="indicadores-detalhe">
                     <div class="indicador-item">
                         <span class="indicador-label">Cotação</span>
@@ -125,10 +123,82 @@
                         <span class="indicador-label">P/VP</span>
                         <span id="detalhe-pvp" class="indicador-valor"></span>
                     </div>
+                    <div class="indicador-item">
+                        <span class="indicador-label">Último Rendimento</span>
+                        <span id="detalhe-rendimento" class="indicador-valor destaque-verde"></span>
+                    </div>
+                    <div class="indicador-item">
+                        <span class="indicador-label">Patrimônio Líquido</span>
+                        <span id="detalhe-patrimonio" class="indicador-valor"></span>
+                    </div>
+                    <div class="indicador-item">
+                        <span class="indicador-label">Nº de Cotistas</span>
+                        <span id="detalhe-cotistas" class="indicador-valor"></span>
+                    </div>
+                </div>
+
+                <!-- Vacância (oculta para fundos de papel/fiagro via JS) -->
+                <div id="secao-vacancia" class="indicadores-detalhe">
+                    <div class="indicador-item">
+                        <span class="indicador-label">Vacância Física</span>
+                        <span id="detalhe-vac-fisica" class="indicador-valor destaque-alerta"></span>
+                    </div>
+                    <div class="indicador-item">
+                        <span class="indicador-label">Vacância Financeira</span>
+                        <span id="detalhe-vac-financeira" class="indicador-valor destaque-alerta"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── LINHA 2: CONTEXTO + GRÁFICO ── -->
+        <div class="row g-4 mb-4">
+
+            <!-- Contexto do Fundo -->
+            <div class="col-12 col-md-4">
+                <div class="card-info-fundo h-100">
+                    <h3 class="card-info-titulo">
+                        <span class="material-symbols-outlined">info</span>
+                        Sobre o Fundo
+                    </h3>
+                    <ul class="lista-info-fundo">
+                        <li>
+                            <span class="info-label">Gestora</span>
+                            <span id="detalhe-gestora" class="info-valor"></span>
+                        </li>
+                        <li>
+                            <span class="info-label">Início do Fundo</span>
+                            <span id="detalhe-inicio" class="info-valor"></span>
+                        </li>
+                        <li>
+                            <span class="info-label">Taxa de Adm.</span>
+                            <span id="detalhe-taxa" class="info-valor"></span>
+                        </li>
+                        <li>
+                            <span class="info-label">Ativos / Imóveis</span>
+                            <span id="detalhe-imoveis" class="info-valor"></span>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
+            <!-- Gráfico DY Histórico -->
+            <div class="col-12 col-md-8">
+                <div class="card-grafico h-100">
+                    <h3 class="card-info-titulo">
+                        <span class="material-symbols-outlined">bar_chart</span>
+                        Histórico de Dividend Yield (12 meses)
+                    </h3>
+                    <canvas id="grafico-dy"></canvas>
+                </div>
+            </div>
         </div>
+
+        <!-- ── SEÇÃO: RELACIONADOS ── -->
+        <section id="secao-relacionados" class="secao-relacionados">
+            <h3 class="secao-relacionados-titulo">FIIs do mesmo setor</h3>
+            <div class="row g-3" id="container-relacionados"></div>
+        </section>
 
     </main>
 
@@ -137,8 +207,8 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
     <script src="app.js"></script>
 
 </body>
-
 </html>
