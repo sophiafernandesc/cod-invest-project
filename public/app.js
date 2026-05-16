@@ -451,7 +451,7 @@ function renderCards(lista) {
     <div class="col-12 col-sm-6 col-lg">
       <a href="detalhes.html?id=${item.id}" class="text-decoration-none card-link">
         <article class="artigo-card d-flex flex-column">
-          <img src="${item.imagem}" alt="Fundo ${item.titulo}">
+          <div class="fii-avatar fii-avatar--${item.setor.toLowerCase().replace(/\s/g, '-')}">${item.titulo}</div>
           <h3>${item.titulo}</h3>
           <p class="setor-badge">${item.setor}</p>
           <div class="card-indicadores-mini">
@@ -607,6 +607,8 @@ if (document.getElementById("detalhe-titulo")) {
     document.getElementById("detalhe-imagem").src             = fii.imagem;
     document.getElementById("detalhe-imagem").alt             = "Fundo " + fii.titulo;
     document.getElementById("detalhe-titulo").textContent     = fii.titulo;
+    const avatarDetalhe = document.getElementById("detalhe-imagem");
+    avatarDetalhe.outerHTML = `<div class="fii-avatar fii-avatar--${fii.setor.toLowerCase().replace(/\s/g, '-')} fii-avatar--detalhe">${fii.titulo}</div>`;
     document.getElementById("detalhe-setor").textContent      = fii.setor;
     document.getElementById("detalhe-descricao").textContent  = fii.descricao;
     document.getElementById("detalhe-cotacao").textContent    = fii.cotacao;
@@ -678,7 +680,7 @@ function renderRelacionados(fiiAtual) {
     <div class="col-12 col-sm-6 col-md-4 col-lg-3">
       <a href="detalhes.html?id=${f.id}" class="text-decoration-none card-link">
         <article class="artigo-card d-flex flex-column">
-          <img src="${f.imagem}" alt="Fundo ${f.titulo}">
+          <div class="fii-avatar fii-avatar--${f.setor.toLowerCase().replace(/\s/g, '-')}">${f.titulo}</div>
           <h3>${f.titulo}</h3>
           <p class="setor-badge">${f.setor}</p>
           <div class="card-indicadores-mini">
