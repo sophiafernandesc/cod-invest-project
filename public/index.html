@@ -43,7 +43,7 @@
             <div class="collapse navbar-collapse" id="navbarPrincipal">
                 <div class="d-flex align-items-center gap-3 nav-links-center">
                     <div class="busca-pequena d-none d-lg-block">
-                        <input type="text" placeholder="Search" class="input-busca-pequena">
+                        <input type="text" id="busca-navbar" placeholder="Buscar ticker, setor..." class="input-busca-pequena">
                     </div>
 
                     <ul class="navbar-nav menu-principal gap-lg-4">
@@ -56,10 +56,12 @@
                                 FIIs
                             </a>
                             <ul class="dropdown-menu dropdown-content">
-                                <li><a href="#" class="dropdown-item">Tijolo</a></li>
-                                <li><a href="#" class="dropdown-item">Papel</a></li>
-                                <li><a href="#" class="dropdown-item">Híbrido</a></li>
-                                <li><a href="#" class="dropdown-item">Fiagro</a></li>
+                                <li><a href="#" class="dropdown-item" data-setor="Tijolo">Tijolo</a></li>
+                                <li><a href="#" class="dropdown-item" data-setor="Papel">Papel</a></li>
+                                <li><a href="#" class="dropdown-item" data-setor="Híbrido">Híbrido</a></li>
+                                <li><a href="#" class="dropdown-item" data-setor="Fiagro">Fiagro</a></li>
+                                <li><a href="#" class="dropdown-item" data-setor="Fundo de Fundos">Fundo de Fundos</a></li>
+                                <li><a href="#" class="dropdown-item" data-setor="Hoteleiro">Hoteleiro</a></li>
                             </ul>
                         </li>
 
@@ -88,7 +90,7 @@
         </div>
         <div class="offcanvas-body">
             <div class="busca-pequena mb-4">
-                <input type="text" placeholder="Search" class="input-busca-pequena w-100">
+                <input type="text" id="busca-offcanvas" placeholder="Buscar ticker, setor..." class="input-busca-pequena w-100">
             </div>
             <ul class="navbar-nav menu-principal flex-column gap-1">
                 <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
@@ -101,10 +103,12 @@
                     </a>
                     <div class="collapse" id="fiisSubmenu">
                         <ul class="list-unstyled submenu-lateral">
-                            <li><a href="#" class="nav-link">Tijolo</a></li>
-                            <li><a href="#" class="nav-link">Papel</a></li>
-                            <li><a href="#" class="nav-link">Híbrido</a></li>
-                            <li><a href="#" class="nav-link">Fiagro</a></li>
+                            <li><a href="#" class="nav-link" data-setor="Tijolo">Tijolo</a></li>
+                            <li><a href="#" class="nav-link" data-setor="Papel">Papel</a></li>
+                            <li><a href="#" class="nav-link" data-setor="Híbrido">Híbrido</a></li>
+                            <li><a href="#" class="nav-link" data-setor="Fiagro">Fiagro</a></li>
+                            <li><a href="#" class="nav-link" data-setor="Fundo de Fundos">Fundo de Fundos</a></li>
+                            <li><a href="#" class="nav-link" data-setor="Hoteleiro">Hoteleiro</a></li>
                         </ul>
                     </div>
                 </li>
@@ -134,7 +138,7 @@
                     </select>
                 </div>
                 <div class="col col-sm">
-                    <input type="text" placeholder="Search ticker" class="barra-busca w-100">
+                    <input type="text" id="busca-principal" placeholder="Buscar ticker, setor, gestora..." class="barra-busca w-100" autocomplete="off">
                 </div>
                 <div class="col-auto">
                     <button type="submit" class="botao-busca d-flex align-items-center gap-2">
@@ -158,9 +162,13 @@
         </section>
 
         <!-- Seção: Destaques FIIs -->
-        <section class="secao-destaques">
-            <h2>Destaques FIIs</h2>
-            <!-- col-12 mobile, col-sm-6 tablet (2 por linha), col-lg auto (5 por linha) -->
+        <section class="secao-destaques" id="secao-destaques">
+            <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-2">
+                <h2 id="titulo-destaques" class="mb-0">Destaques FIIs</h2>
+                <button id="btn-ver-todos" class="btn-ver-todos" style="display:none;">
+                    Ver todos os FIIs
+                </button>
+            </div>
             <div class="row g-3" id="container-cards"></div>
         </section>
 

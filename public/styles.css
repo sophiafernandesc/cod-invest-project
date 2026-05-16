@@ -559,3 +559,80 @@ h2 {
     color: var(--azul-profundo);
     margin-right: 3px;
 }
+
+/* =======================================================
+   AUTOCOMPLETE
+   ======================================================= */
+
+.autocomplete-lista {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    z-index: 1050;
+    background-color: var(--azul-ardosia);
+    border-radius: 0 0 8px 8px;
+    border-top: 2px solid var(--dourado-escuro);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    list-style: none;
+    margin: 0;
+    padding: 6px 0;
+    display: none;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.autocomplete-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 0.9rem;
+    transition: background 0.15s;
+    gap: 12px;
+}
+
+.autocomplete-item:hover {
+    background-color: var(--azul-profundo);
+    color: var(--dourado-claro);
+}
+
+.autocomplete-item strong {
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.autocomplete-setor {
+    font-size: 0.75rem;
+    color: var(--dourado-claro);
+    opacity: 0.8;
+    white-space: nowrap;
+}
+
+/* Scrollbar do autocomplete */
+.autocomplete-lista::-webkit-scrollbar { width: 4px; }
+.autocomplete-lista::-webkit-scrollbar-track { background: transparent; }
+.autocomplete-lista::-webkit-scrollbar-thumb { background: var(--dourado-escuro); border-radius: 2px; }
+
+/* =======================================================
+   BOTÃO "VER TODOS OS FIIs"
+   ======================================================= */
+
+.btn-ver-todos {
+    background: transparent;
+    border: 1.5px solid var(--dourado-claro);
+    color: var(--dourado-escuro);
+    border-radius: 6px;
+    padding: 6px 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-ver-todos:hover {
+    background-color: var(--dourado-claro);
+    color: var(--azul-profundo);
+}
