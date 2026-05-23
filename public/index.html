@@ -36,14 +36,18 @@
 
             <!-- Ícone de perfil: canto direito no mobile (oculto no desktop, aparece dentro do collapse) -->
             <div class="icones-usuario d-flex align-items-center d-lg-none">
-                <span class="material-symbols-outlined">account_circle</span>
+                <button class="icone-perfil-btn" data-bs-toggle="offcanvas" data-bs-target="#painelConfig"
+                    aria-controls="painelConfig" aria-label="Configurações">
+                    <span class="material-symbols-outlined">account_circle</span>
+                </button>
             </div>
 
             <!-- Links do desktop (auto-expandido em lg pelo navbar-expand-lg) -->
             <div class="collapse navbar-collapse" id="navbarPrincipal">
                 <div class="d-flex align-items-center gap-3 nav-links-center">
                     <div class="busca-pequena d-none d-lg-block">
-                        <input type="text" id="busca-navbar" placeholder="Buscar ticker, setor..." class="input-busca-pequena">
+                        <input type="text" id="busca-navbar" placeholder="Buscar ticker, setor..."
+                            class="input-busca-pequena">
                     </div>
 
                     <ul class="navbar-nav menu-principal gap-lg-4">
@@ -60,7 +64,8 @@
                                 <li><a href="#" class="dropdown-item" data-setor="Papel">Papel</a></li>
                                 <li><a href="#" class="dropdown-item" data-setor="Híbrido">Híbrido</a></li>
                                 <li><a href="#" class="dropdown-item" data-setor="Fiagro">Fiagro</a></li>
-                                <li><a href="#" class="dropdown-item" data-setor="Fundo de Fundos">Fundo de Fundos</a></li>
+                                <li><a href="#" class="dropdown-item" data-setor="Fundo de Fundos">Fundo de Fundos</a>
+                                </li>
                                 <li><a href="#" class="dropdown-item" data-setor="Hoteleiro">Hoteleiro</a></li>
                             </ul>
                         </li>
@@ -73,7 +78,10 @@
 
                 <!-- Ícone de perfil no desktop (dentro do collapse, alinhado à direita) -->
                 <div class="icones-usuario d-none d-lg-flex align-items-center gap-3 ms-auto">
-                    <span class="material-symbols-outlined">account_circle</span>
+                    <button class="icone-perfil-btn" data-bs-toggle="offcanvas" data-bs-target="#painelConfig"
+                        aria-controls="painelConfig" aria-label="Configurações">
+                        <span class="material-symbols-outlined">account_circle</span>
+                    </button>
                 </div>
             </div>
         </nav>
@@ -90,7 +98,8 @@
         </div>
         <div class="offcanvas-body">
             <div class="busca-pequena mb-4">
-                <input type="text" id="busca-offcanvas" placeholder="Buscar ticker, setor..." class="input-busca-pequena w-100">
+                <input type="text" id="busca-offcanvas" placeholder="Buscar ticker, setor..."
+                    class="input-busca-pequena w-100">
             </div>
             <ul class="navbar-nav menu-principal flex-column gap-1">
                 <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
@@ -132,13 +141,14 @@
             -->
             <form action="#" class="formulario-busca row g-2">
                 <div class="col-12 col-sm-auto">
-                    <select name="filtro-pais" class="campo-drop w-100">
+                    <select id="filtro-pais" name="filtro-pais" class="campo-drop w-100">
                         <option value="br">Brasil (B3)</option>
-                        <option value="us">EUA (Exterior)</option>
+                        <option value="us" disabled>EUA (em breve)</option>
                     </select>
                 </div>
-                <div class="col col-sm">
-                    <input type="text" id="busca-principal" placeholder="Buscar ticker, setor, gestora..." class="barra-busca w-100" autocomplete="off">
+                <div class="col col-sm" style="position:relative;">
+                    <input type="text" id="busca-principal" placeholder="Buscar ticker, setor, gestora..."
+                        class="barra-busca w-100" autocomplete="off">
                 </div>
                 <div class="col-auto">
                     <button type="submit" class="botao-busca d-flex align-items-center gap-2">
@@ -216,6 +226,56 @@
     </footer>
 
     <!-- Bootstrap JS Bundle (inclui Popper para dropdowns e collapse) -->
+    <!-- Painel de configurações -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="painelConfig" aria-labelledby="painelConfigLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="painelConfigLabel">
+                <span class="material-symbols-outlined" style="font-size:20px">settings</span>
+                Configurações
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
+        </div>
+        <div class="offcanvas-body">
+
+            <!-- Conta -->
+            <div class="config-secao">
+                <p class="config-secao-titulo">Conta</p>
+                <div class="config-conta">
+                    <div class="config-conta-icone">
+                        <span class="material-symbols-outlined">account_circle</span>
+                    </div>
+                    <div class="config-conta-info">
+                        <strong>Visitante</strong>
+                        <p>Não autenticado</p>
+                    </div>
+                </div>
+                <p class="config-em-breve">Login e cadastro em breve.</p>
+            </div>
+
+            <!-- Aparência -->
+            <div class="config-secao">
+                <p class="config-secao-titulo">Aparência</p>
+                <div class="config-tema-toggle">
+                    <button class="config-tema-btn ativo" id="tema-claro">
+                        <span class="material-symbols-outlined">light_mode</span>
+                        Claro
+                    </button>
+                    <button class="config-tema-btn" id="tema-escuro">
+                        <span class="material-symbols-outlined">dark_mode</span>
+                        Escuro
+                    </button>
+                </div>
+            </div>
+
+            <!-- Notificações -->
+            <div class="config-secao">
+                <p class="config-secao-titulo">Notificações</p>
+                <p class="config-em-breve">Alertas de preço e proventos em breve.</p>
+            </div>
+
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="app.js"></script>
 

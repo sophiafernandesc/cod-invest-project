@@ -612,9 +612,18 @@ h2 {
 }
 
 /* Scrollbar do autocomplete */
-.autocomplete-lista::-webkit-scrollbar { width: 4px; }
-.autocomplete-lista::-webkit-scrollbar-track { background: transparent; }
-.autocomplete-lista::-webkit-scrollbar-thumb { background: var(--dourado-escuro); border-radius: 2px; }
+.autocomplete-lista::-webkit-scrollbar {
+    width: 4px;
+}
+
+.autocomplete-lista::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.autocomplete-lista::-webkit-scrollbar-thumb {
+    background: var(--dourado-escuro);
+    border-radius: 2px;
+}
 
 /* =======================================================
    BOTÃO "VER TODOS OS FIIs"
@@ -705,4 +714,346 @@ h2 {
     background-color: #FAECE7;
     color: #712B13;
     border: 1px solid #F5C4B3;
+}
+
+/* =======================================================
+   DARK MODE
+   Ativado via atributo data-theme="dark" no <html>
+   ======================================================= */
+
+[data-theme="dark"] {
+    --fundo-pagina: #010440;
+    --cor-texto: #e8e8e8;
+}
+
+[data-theme="dark"] body {
+    background-color: var(--fundo-pagina);
+    color: var(--cor-texto);
+}
+
+[data-theme="dark"] h2 {
+    color: var(--dourado-claro);
+}
+
+[data-theme="dark"] .artigo-card {
+    background-color: var(--azul-ardosia);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .artigo-card:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .card-link,
+[data-theme="dark"] .card-link:hover {
+    color: var(--cor-texto);
+}
+
+[data-theme="dark"] .artigo-card h3 {
+    color: var(--dourado-claro);
+}
+
+[data-theme="dark"] .card-indicadores-mini {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #aaa;
+}
+
+[data-theme="dark"] .card-indicadores-mini strong {
+    color: var(--dourado-claro);
+}
+
+[data-theme="dark"] .card-indicador {
+    background-color: var(--azul-ardosia);
+    color: var(--cor-texto);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .campo-drop,
+[data-theme="dark"] .barra-busca {
+    background-color: var(--azul-ardosia);
+    border-color: var(--dourado-escuro);
+    color: #ffffff;
+}
+
+[data-theme="dark"] .campo-drop option {
+    background-color: var(--azul-ardosia);
+}
+
+[data-theme="dark"] .card-detalhe {
+    background-color: var(--azul-ardosia);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .card-detalhe h2 {
+    color: var(--dourado-claro);
+}
+
+[data-theme="dark"] .indicador-item {
+    background-color: #0c1e2e;
+}
+
+[data-theme="dark"] .indicador-label {
+    color: #aaa;
+}
+
+[data-theme="dark"] .indicador-valor {
+    color: var(--dourado-claro);
+}
+
+[data-theme="dark"] .card-info-fundo,
+[data-theme="dark"] .card-grafico {
+    background-color: var(--azul-ardosia);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .card-info-titulo {
+    color: var(--dourado-claro);
+}
+
+[data-theme="dark"] .lista-info-fundo li {
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .info-label {
+    color: #888;
+}
+
+[data-theme="dark"] .info-valor {
+    color: var(--dourado-claro);
+}
+
+[data-theme="dark"] .btn-voltar {
+    color: var(--dourado-claro);
+}
+
+[data-theme="dark"] .secao-relacionados-titulo {
+    color: var(--dourado-claro);
+}
+
+[data-theme="dark"] .btn-ver-todos {
+    border-color: var(--dourado-escuro);
+    color: var(--dourado-claro);
+}
+
+[data-theme="dark"] .btn-ver-todos:hover {
+    background-color: var(--dourado-escuro);
+    color: #fff;
+}
+
+/* Avatares no dark mode */
+[data-theme="dark"] .fii-avatar--papel {
+    background-color: #0f2233;
+    color: #7ab3d4;
+    border-color: #1D3D59;
+}
+
+[data-theme="dark"] .fii-avatar--tijolo {
+    background-color: #231a08;
+    color: #D9B573;
+    border-color: #B0944E;
+}
+
+[data-theme="dark"] .fii-avatar--híbrido {
+    background-color: #0a1e22;
+    color: #5eb8c8;
+    border-color: #204953;
+}
+
+[data-theme="dark"] .fii-avatar--fiagro {
+    background-color: #0f1e08;
+    color: #8bc34a;
+    border-color: #3B6D11;
+}
+
+[data-theme="dark"] .fii-avatar--fundo-de-fundos {
+    background-color: #14103a;
+    color: #a89ee8;
+    border-color: #534AB7;
+}
+
+[data-theme="dark"] .fii-avatar--hoteleiro {
+    background-color: #2a0e06;
+    color: #e8896a;
+    border-color: #993C1D;
+}
+
+/* =======================================================
+   PAINEL DE CONFIGURAÇÕES (offcanvas direito)
+   ======================================================= */
+#painelConfig {
+    background-color: #ffffff;
+    color: var(--cor-texto);
+    max-width: 300px;
+    transition: background-color 0.3s ease;
+}
+
+[data-theme="dark"] #painelConfig {
+    background-color: #0d1b2e;
+    color: var(--cor-texto);
+}
+
+#painelConfig .offcanvas-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 16px 20px;
+}
+
+[data-theme="dark"] #painelConfig .offcanvas-header {
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+#painelConfig .offcanvas-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--azul-profundo);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+[data-theme="dark"] #painelConfig .offcanvas-title {
+    color: var(--dourado-claro);
+}
+
+#painelConfig .btn-close {
+    opacity: 0.6;
+}
+
+[data-theme="dark"] #painelConfig .btn-close {
+    filter: invert(1) brightness(1.5);
+    opacity: 0.8;
+}
+
+#painelConfig .offcanvas-body {
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+/* Seções do painel */
+.config-secao {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.config-secao-titulo {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #999;
+    margin: 0;
+}
+
+[data-theme="dark"] .config-secao-titulo {
+    color: #666;
+}
+
+/* Conta */
+.config-conta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 8px;
+    background-color: var(--fundo-pagina);
+}
+
+[data-theme="dark"] .config-conta {
+    background-color: #1a2a3a;
+}
+
+.config-conta-icone .material-symbols-outlined {
+    font-size: 36px !important;
+    color: var(--azul-ardosia);
+}
+
+[data-theme="dark"] .config-conta-icone .material-symbols-outlined {
+    color: var(--dourado-claro);
+}
+
+.config-conta-info p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.config-conta-info strong {
+    font-size: 0.95rem;
+    color: var(--azul-profundo);
+}
+
+[data-theme="dark"] .config-conta-info strong {
+    color: var(--dourado-claro);
+}
+
+.config-em-breve {
+    font-size: 0.75rem;
+    color: #aaa;
+    font-style: italic;
+    margin: 0;
+}
+
+/* Toggle de aparência */
+.config-tema-toggle {
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1.5px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .config-tema-toggle {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.config-tema-btn {
+    flex: 1;
+    padding: 10px 8px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #888;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.config-tema-btn .material-symbols-outlined {
+    font-size: 16px !important;
+    color: inherit;
+}
+
+.config-tema-btn.ativo {
+    background-color: var(--azul-profundo);
+    color: var(--dourado-claro);
+}
+
+[data-theme="dark"] .config-tema-btn.ativo {
+    background-color: var(--azul-ardosia);
+    color: var(--dourado-claro);
+}
+
+.config-tema-btn:not(.ativo):hover {
+    background-color: rgba(0, 0, 0, 0.04);
+    color: var(--azul-profundo);
+}
+
+[data-theme="dark"] .config-tema-btn:not(.ativo):hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--dourado-claro);
+}
+
+/* Ícone de perfil clicável */
+.icone-perfil-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
 }
