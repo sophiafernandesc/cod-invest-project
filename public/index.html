@@ -43,7 +43,8 @@
             <div class="collapse navbar-collapse" id="navbarPrincipal">
                 <div class="d-flex align-items-center gap-3 nav-links-center">
                     <div class="busca-pequena d-none d-lg-block">
-                        <input type="text" id="busca-navbar" placeholder="Buscar ticker, setor..." class="input-busca-pequena">
+                        <input type="text" id="busca-navbar" placeholder="Buscar ticker, setor..."
+                            class="input-busca-pequena">
                     </div>
 
                     <ul class="navbar-nav menu-principal gap-lg-4">
@@ -60,7 +61,8 @@
                                 <li><a href="#" class="dropdown-item" data-setor="Papel">Papel</a></li>
                                 <li><a href="#" class="dropdown-item" data-setor="Híbrido">Híbrido</a></li>
                                 <li><a href="#" class="dropdown-item" data-setor="Fiagro">Fiagro</a></li>
-                                <li><a href="#" class="dropdown-item" data-setor="Fundo de Fundos">Fundo de Fundos</a></li>
+                                <li><a href="#" class="dropdown-item" data-setor="Fundo de Fundos">Fundo de Fundos</a>
+                                </li>
                                 <li><a href="#" class="dropdown-item" data-setor="Hoteleiro">Hoteleiro</a></li>
                             </ul>
                         </li>
@@ -90,7 +92,8 @@
         </div>
         <div class="offcanvas-body">
             <div class="busca-pequena mb-4">
-                <input type="text" id="busca-offcanvas" placeholder="Buscar ticker, setor..." class="input-busca-pequena w-100">
+                <input type="text" id="busca-offcanvas" placeholder="Buscar ticker, setor..."
+                    class="input-busca-pequena w-100">
             </div>
             <ul class="navbar-nav menu-principal flex-column gap-1">
                 <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
@@ -132,13 +135,14 @@
             -->
             <form action="#" class="formulario-busca row g-2">
                 <div class="col-12 col-sm-auto">
-                    <select name="filtro-pais" class="campo-drop w-100">
+                    <select id="filtro-pais" name="filtro-pais" class="campo-drop w-100">
                         <option value="br">Brasil (B3)</option>
-                        <option value="us">EUA (Exterior)</option>
+                        <option value="us" disabled>EUA (em breve)</option>
                     </select>
                 </div>
-                <div class="col col-sm">
-                    <input type="text" id="busca-principal" placeholder="Buscar ticker, setor, gestora..." class="barra-busca w-100" autocomplete="off">
+                <div class="col col-sm" style="position:relative;">
+                    <input type="text" id="busca-principal" placeholder="Buscar ticker, setor, gestora..."
+                        class="barra-busca w-100" autocomplete="off">
                 </div>
                 <div class="col-auto">
                     <button type="submit" class="botao-busca d-flex align-items-center gap-2">
