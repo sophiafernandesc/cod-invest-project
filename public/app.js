@@ -706,3 +706,40 @@ function renderRelacionados(fiiAtual) {
     </div>
   `).join("");
 }
+
+// =============================================================
+//  DARK MODE + PAINEL DE CONFIGURAÇÕES
+// =============================================================
+
+function inicializarDarkMode() {
+  const btnClaro  = document.getElementById("tema-claro");
+  const btnEscuro = document.getElementById("tema-escuro");
+
+  const temaSalvo   = localStorage.getItem("tema");
+  const prefereDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const temaInicial = temaSalvo || (prefereDark ? "dark" : "light");
+
+  aplicarTema(temaInicial);
+
+  btnClaro?.addEventListener("click",  () => aplicarTema("light"));
+  btnEscuro?.addEventListener("click", () => aplicarTema("dark"));
+}
+
+function aplicarTema(tema) {
+  const html      = document.documentElement;
+  const btnClaro  = document.getElementById("tema-claro");
+  const btnEscuro = document.getElementById("tema-escuro");
+
+  html.setAttribute("data-theme", tema);
+  localStorage.setItem("tema", tema);
+
+  if (tema === "dark") {
+    btnClaro?.classList.remove("ativo");
+    btnEscuro?.classList.add("ativo");
+  } else {
+    btnEscuro?.classList.remove("ativo");
+    btnClaro?.classList.add("ativo");
+  }
+}
+
+inicializarDarkMode();
