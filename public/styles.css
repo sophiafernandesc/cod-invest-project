@@ -1057,3 +1057,124 @@ h2 {
     display: flex;
     align-items: center;
 }
+
+/* =======================================================
+   PÁGINA SOBRE
+   ======================================================= */
+
+.sobre-logo {
+    height: 120px;
+    object-fit: contain;
+}
+
+.sobre-titulo {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--azul-profundo);
+    margin-bottom: 16px;
+}
+
+.dourado-texto {
+    color: var(--dourado-claro);
+}
+
+.sobre-subtitulo {
+    font-size: 1.05rem;
+    color: #666;
+    max-width: 680px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+[data-theme="dark"] .sobre-titulo {
+    color: var(--dourado-claro);
+}
+
+[data-theme="dark"] .sobre-subtitulo {
+    color: #aaa;
+}
+
+/* Cards de seção */
+.sobre-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 28px 32px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    border-left: 4px solid var(--dourado-claro);
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+[data-theme="dark"] .sobre-card {
+    background-color: var(--azul-ardosia);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.sobre-card-icone .material-symbols-outlined {
+    font-size: 28px !important;
+    color: var(--dourado-claro);
+    margin-top: 2px;
+}
+
+.sobre-card-titulo {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--azul-profundo);
+    margin-bottom: 12px;
+}
+
+[data-theme="dark"] .sobre-card-titulo {
+    color: var(--dourado-claro);
+}
+
+.sobre-card p {
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+
+.sobre-card p:last-child {
+    margin-bottom: 0;
+}
+
+[data-theme="dark"] .sobre-card p {
+    color: #bbb;
+}
+
+/* Badges de tecnologia */
+.sobre-tech-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.sobre-tech-badge {
+    background-color: var(--fundo-pagina);
+    border: 1.5px solid var(--azul-ardosia);
+    color: var(--azul-ardosia);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+[data-theme="dark"] .sobre-tech-badge {
+    background-color: #0c1e2e;
+    border-color: var(--dourado-escuro);
+    color: var(--dourado-claro);
+}
+
+/* Responsivo mobile */
+@media (max-width: 576px) {
+    .sobre-card {
+        flex-direction: column;
+        gap: 12px;
+        padding: 20px;
+    }
+
+    .sobre-titulo {
+        font-size: 1.6rem;
+    }
+}
