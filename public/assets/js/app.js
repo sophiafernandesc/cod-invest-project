@@ -2,15 +2,17 @@
    app.js — Cod Invest
    Dados via JSON Server (fetch/async-await)
    Endpoints:
-     GET /fiis          → todos os FIIs
-     GET /fiis/:id      → FII específico
-     GET /indicadores   → indicadores de mercado
-     GET /noticias      → notícias
+     GET /fiis                   → todos os FIIs
+     GET /fiis?destaque=true     → FIIs em destaque (carrossel)
+     GET /fiis/:id               → FII específico
+     GET /proventos?fiiId=X      → proventos do FII
+     GET /indicadores            → indicadores de mercado
+     GET /noticias               → notícias
    ========================================================== */
 
 const API = 'http://localhost:3000';
 
-// Cache local dos FIIs para autocomplete e filtros sem refetch
+// Cache local para autocomplete e filtros sem refetch
 let cacheFiis = [];
 
 // =============================================================
@@ -28,7 +30,7 @@ function avatarSetor(setor, titulo, extra = '') {
 // =============================================================
 //  ROTEADOR
 // =============================================================
-if (document.getElementById('container-cards')) iniciarHome();
+if (document.getElementById('carousel-inner'))  iniciarHome();
 if (document.getElementById('detalhe-titulo'))   iniciarDetalhes();
 
 // =============================================================
@@ -36,16 +38,17 @@ if (document.getElementById('detalhe-titulo'))   iniciarDetalhes();
 // =============================================================
 async function iniciarHome() {
   try {
-    const [fiis, indicadores, noticias] = await Promise.all([
+    const [fiis, destaques, indicadores, noticias] = await Promise.all([
       fetch(`${API}/fiis`).then(r => r.json()),
+      fetch(`${API}/fiis?destaque=true`).then(r => r.json()),
       fetch(`${API}/indicadores`).then(r => r.json()),
       fetch(`${API}/noticias`).then(r => r.json())
     ]);
 
     cacheFiis = fiis;
 
-    const destaques = [...fiis].sort((a, b) => b.cotistas - a.cotistas).slice(0, 8);
-    renderCards(destaques);
+    renderCarousel(destaques);
+    renderCards([...fiis].sort((a, b) => b.cotistas - a.cotistas).slice(0, 8));
     renderIndicadores(indicadores);
     renderNoticias(noticias);
     inicializarFiltroSetor();
@@ -53,11 +56,65 @@ async function iniciarHome() {
 
   } catch (erro) {
     console.error('Erro ao carregar home:', erro);
-    document.getElementById('container-cards').innerHTML = `
-      <div class="col-12 text-center py-5">
-        <p class="text-danger">Servidor não encontrado. Execute: <code>npm start</code></p>
-      </div>`;
+    document.getElementById('carousel-inner').innerHTML =
+      '<div class="carousel-item active"><p class="text-center text-danger py-5">Servidor não encontrado. Execute: <code>npm start</code></p></div>';
   }
+}
+
+// =============================================================
+//  CARROSSEL
+// =============================================================
+function renderCarousel(destaques) {
+  const inner      = document.getElementById('carousel-inner');
+  const indicators = document.getElementById('carousel-indicators');
+  if (!inner || !indicators) return;
+
+  let htmlIndicators = '';
+  let htmlSlides     = '';
+
+  destaques.forEach(function(fii, i) {
+    const ativo       = i === 0 ? 'active' : '';
+    const ariaCurrent = i === 0 ? 'aria-current="true"' : '';
+
+    htmlIndicators += `
+      <button type="button"
+        data-bs-target="#carouselDestaques"
+        data-bs-slide-to="${i}"
+        class="${ativo}" ${ariaCurrent}
+        aria-label="Slide ${i + 1}">
+      </button>`;
+
+    htmlSlides += `
+      <div class="carousel-item ${ativo}">
+        <img src="${fii.imagem}" class="d-block w-100 carousel-imagem" alt="${fii.titulo}">
+        <div class="carousel-caption">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <h3 class="mb-0">${fii.titulo}</h3>
+            <span class="setor-badge">${fii.setor}</span>
+          </div>
+          <p class="carousel-descricao">${fii.descricao}</p>
+          <p class="carousel-indicadores">
+            <span class="carousel-badge">DY ${fii.dy}</span>
+            <span class="carousel-badge">P/VP ${fii.pvp}</span>
+            <span class="carousel-badge">Cota ${fii.cotacao}</span>
+          </p>
+          <button type="button" class="btn-carousel mt-2" data-url="detalhes.html?id=${fii.id}">
+            Ver Detalhes
+          </button>
+        </div>
+      </div>`;
+  });
+
+  indicators.innerHTML = htmlIndicators;
+  inner.innerHTML      = htmlSlides;
+
+  document.querySelectorAll('.btn-carousel').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      window.location.href = this.dataset.url;
+    });
+  });
 }
 
 // =============================================================
@@ -142,14 +199,14 @@ function inicializarFiltroSetor() {
         const inst = bootstrap.Offcanvas.getInstance(offcanvas);
         if (inst) inst.hide();
       }
-      document.getElementById('secao-destaques')?.scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('secao-todos-fiis')?.scrollIntoView({ behavior: 'smooth' });
     });
   });
 
   document.getElementById('btn-ver-todos')?.addEventListener('click', () => {
     const destaques = [...cacheFiis].sort((a, b) => b.cotistas - a.cotistas).slice(0, 8);
     renderCards(destaques);
-    atualizarTituloSecao('Destaques FIIs', false);
+    atualizarTituloSecao('Todos os FIIs', false);
   });
 }
 
@@ -169,7 +226,7 @@ function inicializarBusca() {
       window.location.href = `detalhes.html?id=${match.id}`;
     } else {
       filtrarCards(termo);
-      document.getElementById('secao-destaques')?.scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('secao-todos-fiis')?.scrollIntoView({ behavior: 'smooth' });
     }
   });
 }
@@ -231,7 +288,7 @@ function filtrarCards(termo) {
   if (!termo) {
     const destaques = [...cacheFiis].sort((a, b) => b.cotistas - a.cotistas).slice(0, 8);
     renderCards(destaques);
-    atualizarTituloSecao('Destaques FIIs', false);
+    atualizarTituloSecao('Todos os FIIs', false);
     return;
   }
   const termoUpper = termo.toUpperCase();
@@ -253,12 +310,14 @@ async function iniciarDetalhes() {
   if (!id) { window.location.href = 'index.html'; return; }
 
   try {
-    const [fii, todos] = await Promise.all([
+    const [fii, proventos, todos] = await Promise.all([
       fetch(`${API}/fiis/${id}`).then(r => r.json()),
+      fetch(`${API}/proventos?fiiId=${id}`).then(r => r.json()),
       fetch(`${API}/fiis`).then(r => r.json())
     ]);
 
     renderDetalhe(fii);
+    renderProventos(proventos);
     renderRelacionados(todos.filter(f => f.setor === fii.setor && f.id !== fii.id));
 
   } catch (erro) {
@@ -330,6 +389,29 @@ function renderGraficoDY(historico) {
       }
     }
   });
+}
+
+function renderProventos(proventos) {
+  const container = document.getElementById('container-proventos');
+  if (!container) return;
+
+  if (proventos.length === 0) {
+    container.closest('section').style.display = 'none';
+    return;
+  }
+
+  container.innerHTML = proventos.map(p => `
+    <div class="col-12 col-sm-6 col-md-4">
+      <div class="card-provento">
+        <img src="${p.imagem}" alt="${p.titulo}">
+        <div class="card-provento-body">
+          <p class="card-provento-titulo">${p.titulo}</p>
+          <p class="card-provento-mes">${p.mes}</p>
+          <p class="card-provento-valor">${p.valor} / cota</p>
+        </div>
+      </div>
+    </div>
+  `).join('');
 }
 
 function renderRelacionados(relacionados) {

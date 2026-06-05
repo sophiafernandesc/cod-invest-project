@@ -161,23 +161,35 @@
         <!-- Seção: Indicadores de Mercado -->
         <section class="secao-indicadores">
             <h2>Indicadores de Mercado</h2>
-            <div class="indicadores-scroll">
-                <div class="card-indicador"><strong>Dólar</strong><br>R$ 5,00</div>
-                <div class="card-indicador"><strong>Ibovespa</strong><br>130.000 pts</div>
-                <div class="card-indicador"><strong>CDI</strong><br>10,40% a.a.</div>
-                <div class="card-indicador"><strong>DOW JONES</strong><br>39.000 pts</div>
-                <div class="card-indicador"><strong>SP&500</strong><br>5.100 pts</div>
-                <div class="card-indicador"><strong>Ouro</strong><br>+1.2%</div>
+            <div class="indicadores-scroll" id="container-indicadores">
+                <!-- Renderizado por app.js via fetch -->
             </div>
         </section>
 
-        <!-- Seção: Destaques FIIs -->
-        <section class="secao-destaques" id="secao-destaques">
-            <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-2">
-                <h2 id="titulo-destaques" class="mb-0">Destaques FIIs</h2>
-                <button id="btn-ver-todos" class="btn-ver-todos" style="display:none;">
-                    Ver todos os FIIs
+        <!-- Seção: Carrossel de FIIs em destaque -->
+        <section class="secao-carrossel">
+            <h2>FIIs em Destaque</h2>
+            <div id="carouselDestaques" class="carousel slide" data-bs-ride="carousel" data-bs-touch="false">
+                <div class="carousel-indicators" id="carousel-indicators"></div>
+                <div class="carousel-inner" id="carousel-inner">
+                    <!-- Renderizado por app.js via fetch -->
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselDestaques" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
                 </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselDestaques" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Próximo</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Seção: Todos os FIIs (cards) -->
+        <section class="secao-todos-fiis" id="secao-todos-fiis">
+            <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-2">
+                <h2 id="titulo-destaques" class="mb-0">Todos os FIIs</h2>
+                <button id="btn-ver-todos" class="btn-ver-todos" style="display:none;">Ver todos os FIIs</button>
             </div>
             <div class="row g-3" id="container-cards"></div>
         </section>
@@ -185,37 +197,8 @@
         <!-- Seção: Notícias -->
         <section class="secao-noticias">
             <h2>Notícias</h2>
-            <div class="row g-3">
-                <div class="col-12 col-sm-6 col-lg">
-                    <article class="artigo-card d-flex flex-column">
-                        <img src="https://picsum.photos/id/0/200/150" alt="Notícia 1">
-                        <p>Selic mantém estabilidade e favorece novos aportes em FIIs de tijolo.</p>
-                    </article>
-                </div>
-                <div class="col-12 col-sm-6 col-lg">
-                    <article class="artigo-card d-flex flex-column">
-                        <img src="https://picsum.photos/id/180/200/150" alt="Notícia 2">
-                        <p>Relatório Focus indica leve queda na inflação para o próximo semestre.</p>
-                    </article>
-                </div>
-                <div class="col-12 col-sm-6 col-lg">
-                    <article class="artigo-card d-flex flex-column">
-                        <img src="https://picsum.photos/id/160/200/150" alt="Notícia 3">
-                        <p>Novos IPOs de Fiagros agitam o mercado de renda variável.</p>
-                    </article>
-                </div>
-                <div class="col-12 col-sm-6 col-lg">
-                    <article class="artigo-card d-flex flex-column">
-                        <img src="https://picsum.photos/id/119/200/150" alt="Notícia 4">
-                        <p>Entenda o impacto da reforma tributária nos dividendos mensais.</p>
-                    </article>
-                </div>
-                <div class="col-12 col-sm-6 col-lg">
-                    <article class="artigo-card d-flex flex-column">
-                        <img src="https://picsum.photos/id/48/200/150" alt="Notícia 5">
-                        <p>Vacância em escritórios de alto padrão em SP atinge mínima histórica.</p>
-                    </article>
-                </div>
+            <div class="row g-3" id="container-noticias">
+                <!-- Renderizado por app.js via fetch -->
             </div>
         </section>
 
