@@ -2,8 +2,6 @@
 
 Um painel de controle responsivo e intuitivo desenhado de investidor para investidor, com foco exclusivo em Fundos Imobiliários (FIIs).
 
-![Status do Projeto](https://img.shields.io/badge/Status-Em_Desenvolvimento-success)
-
 ## Informações Gerais
 
 O mercado de Fundos Imobiliários (FIIs) exige rapidez e clareza. O Cod Invest nasce para transformar a complexidade dos indicadores financeiros em uma experiência visual intuitiva e responsiva. Mais do que um dashboard, é uma central de comando para o investidor moderno que busca monitorar proventos, notícias e oscilações do mercado em tempo real, sem perder o foco no que realmente importa: a rentabilidade.
@@ -25,9 +23,9 @@ O mercado de Fundos Imobiliários (FIIs) exige rapidez e clareza. O Cod Invest n
 
 ### Versão Mobile
 <div align="center">
-  <img src="./public/assets/img/codinvest-v6-iphone12pro-home.png" alt="Tela Inicial Mobile" width="32%">
-  <img src="./public/assets/img/codinvest-v6-iphone12pro-detalhes.png" alt="Detalhes do FII Mobile" width="32%">
-  <img src="./public/assets/img/codinvest-v6-iphone12pro-noticias.png" alt="Notícias Mobile" width="32%">
+  <img src="./public/assets/img/codinvest-v6-iphone12pro-home.png" alt="Tela Inicial Mobile" width="32%" style="object-fit: cover; vertical-align: top;">
+  <img src="./public/assets/img/codinvest-v6-iphone12pro-detalhes.png" alt="Detalhes do FII Mobile" width="32%" style="object-fit: cover; vertical-align: top;">
+  <img src="./public/assets/img/codinvest-v6-iphone12pro-noticias.png" alt="Notícias Mobile" width="32%" style="object-fit: cover; vertical-align: top;">
 </div>
 
 ---
@@ -65,11 +63,3 @@ O desenvolvimento seguiu uma esteira lógica de evolução, separada pelas segui
 | `v2-html-css-bootstrap` | Segunda versão: Refatoração de layout integrando o *framework* Bootstrap |
 | `v3-javascript-dinamico` | Terceira versão: Inclusão de JS dinâmico renderizando dados de uma base estática/mock |
 | `v4-javascript-api` | Quarta versão: Evolução final integrando o painel de FIIs à **brAPI** |
-
----
-
-## Como executar o projeto localmente
-
-1. **Clone o repositório:**
-```bash
-   git clone [https://github.com/seu-usuario/cod-invest.git](https://github.com/seu-usuario/cod-invest.git)
