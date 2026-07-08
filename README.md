@@ -1,65 +1,36 @@
-# COD Invest
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-Um painel de controle responsivo e intuitivo desenhado de investidor para investidor, com foco exclusivo em Fundos Imobiliários (FIIs).
+## Getting Started
 
-## Informações Gerais
+First, run the development server:
 
-O mercado de Fundos Imobiliários (FIIs) exige rapidez e clareza. O Cod Invest nasce para transformar a complexidade dos indicadores financeiros em uma experiência visual intuitiva e responsiva. Mais do que um dashboard, é uma central de comando para o investidor moderno que busca monitorar proventos, notícias e oscilações do mercado em tempo real, sem perder o foco no que realmente importa: a rentabilidade.
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-**Benchmarking:** Status Invest e Corretora Rico (XP Inc.)
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
----
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Telas da Aplicação
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-### Versão Web
-<div align="center">
-  <img src="./public/assets/img/codinvest-v6-home.png" alt="Tela Inicial Web" width="48%">
-  <img src="./public/assets/img/codinvest-v6-home2.png" alt="Tela Inicial Web 2" width="48%">
-  <br><br>
-  <img src="./public/assets/img/codinvest-v6-tema.png" alt="Tema Claro" width="48%">
-  <img src="./public/assets/img/codinvest-v6-dark-theme.png" alt="Tema Escuro" width="48%">
-</div>
+## Learn More
 
-### Versão Mobile
-<div align="center">
-  <img src="./public/assets/img/codinvest-v6-iphone12pro-home.png" alt="Tela Inicial Mobile" width="32%" style="object-fit: cover; vertical-align: top;">
-  <img src="./public/assets/img/codinvest-v6-iphone12pro-detalhes.png" alt="Detalhes do FII Mobile" width="32%" style="object-fit: cover; vertical-align: top;">
-  <img src="./public/assets/img/codinvest-v6-iphone12pro-noticias.png" alt="Notícias Mobile" width="32%" style="object-fit: cover; vertical-align: top;">
-</div>
+To learn more about Next.js, take a look at the following resources:
 
----
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## Funcionalidades
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-* **Busca com Autocomplete:** Filtra FIIs em tempo real por *ticker*, setor ou gestora. Pressionar *Enter* redireciona direto para a página de detalhes.
-* **Filtro por Setor:** Dropdown no menu filtra os cards pelas categorias: Tijolo, Papel, Híbrido, Fiagro, Fundo de Fundos (FoF) ou Hoteleiro.
-* **Destaques Dinâmicos:** Exibe os 8 FIIs com o maior número de cotistas logo na página inicial (*Home*).
-* **Página de Detalhes Completa:** Apresenta dados essenciais como Cotação, *Dividend Yield* (DY), P/VP, Patrimônio Líquido, Vacância, Gráfico histórico de DY e FIIs relacionados do mesmo setor.
-* **Avatares por Setor:** Cards identificados visualmente por cor e *ticker* no lugar de imagens genéricas, facilitando a leitura rápida.
-* **Indicadores de Mercado:** *Scroll* horizontal no topo informando variações do Dólar, Ibovespa, CDI, Dow Jones, S&P 500 e Ouro.
-* **Layout Responsivo:** *Navbar* com *offcanvas* nativo para dispositivos móveis e menu *dropdown* fluido no desktop.
-* **Base de Dados Dinâmica (Mock/API):** O projeto iniciou com 40 FIIs distribuídos em 6 setores, evoluindo para uso de dados mockados e integrações de API.
+## Deploy on Vercel
 
----
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-## Tecnologias Utilizadas
-
-* **Front-end:** HTML5, CSS3, JavaScript e Bootstrap
-* **Dados/API:** Dados estáticos (JSON), `json-server` (Mock REST API) e brAPI
-* **Controle de Versão:** Git e GitHub
-
----
-
-## Estrutura de Branches
-
-O desenvolvimento seguiu uma esteira lógica de evolução, separada pelas seguintes *branches*:
-
-| Branch | Descrição |
-|--------|-----------|
-| `main` | Código estável e versão de produção |
-| `develop` | Branch base para integração contínua de novas *features* |
-| `v1-html-css` | Primeira versão: Estrutura estática em HTML e CSS puro |
-| `v2-html-css-bootstrap` | Segunda versão: Refatoração de layout integrando o *framework* Bootstrap |
-| `v3-javascript-dinamico` | Terceira versão: Inclusão de JS dinâmico renderizando dados de uma base estática/mock |
-| `v4-javascript-api` | Quarta versão: Evolução final integrando o painel de FIIs à **brAPI** |
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
