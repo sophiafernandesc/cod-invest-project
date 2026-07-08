@@ -5,6 +5,7 @@
 import Carrossel from "@/components/Carrossel";
 import FiiCard from "@/components/FiiCard";
 import Link from "next/link";
+import PesquisaPrincipal from "@/components/PesquisaPrincipal";
 import SecaoIndicadores from "@/components/SecaoIndicadores";
 import SecaoNoticias from "@/components/SecaoNoticias";
 import { fiis } from "@/data/fiis";
@@ -37,6 +38,7 @@ export default async function Home({
 
   return (
     <>
+      <PesquisaPrincipal />
       <SecaoIndicadores />
       <Carrossel />
       <main className="mx-auto max-w-6xl px-4 pb-10 pt-10">

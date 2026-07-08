@@ -1,8 +1,12 @@
 // app/fiis/[id]/page.tsx
+import Image from "next/image";
 import { fiis } from "@/data/fiis";
+import { proventos } from "@/data/proventos";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import AvatarSetor from "@/components/AvatarSetor";
+import FiiCard from "@/components/FiiCard";
+import GraficoDY from "@/components/GraficoDY";
 
 export default async function DetalhesFii({
   params,
@@ -19,6 +23,9 @@ export default async function DetalhesFii({
   // Fundos de papel/fiagro não têm vacância (imóveis físicos) —
   // mesma regra usada na versão vanilla (vacanciaFisica === "—").
   const temVacancia = fii.vacanciaFisica !== "—";
+
+  const relacionados = fiis.filter((f) => f.setor === fii.setor && f.id !== fii.id);
+  const proventosFii = proventos.filter((p) => p.fiiId === fii.id);
 
   return (
     <main className="mx-auto max-w-5xl px-4 py-10">
@@ -78,36 +85,60 @@ export default async function DetalhesFii({
           </dl>
         </section>
 
-        {/* Placeholder — Gráfico de DY (dados já existem em fii.dyHistorico) */}
+        {/* Gráfico de DY */}
         <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#1D3D59] lg:col-span-2">
           <h2 className="mb-4 text-sm font-bold uppercase tracking-wide text-[#020659] dark:text-[#D9B573]">
             Histórico de Dividend Yield (12 meses)
           </h2>
-          <div className="flex h-48 items-center justify-center rounded-lg bg-gray-50 text-gray-400 dark:bg-[#0c1e2e] dark:text-white/40">
-            Gráfico em breve — dados prontos em fii.dyHistorico
-          </div>
+          <GraficoDY dados={fii.dyHistorico} />
         </section>
       </div>
 
-      {/* Placeholder — FIIs relacionados */}
-      <section className="mt-8">
-        <h2 className="mb-4 inline-block border-b-2 border-[#D9B573] pb-2 text-lg font-bold text-[#020659] dark:text-[#D9B573]">
-          FIIs do mesmo setor
-        </h2>
-        <div className="flex h-24 items-center justify-center rounded-lg bg-gray-50 text-gray-400 dark:bg-[#0c1e2e] dark:text-white/40">
-          Relacionados em breve
-        </div>
-      </section>
+      {/* FIIs relacionados */}
+      {relacionados.length > 0 && (
+        <section className="mt-8">
+          <h2 className="mb-4 inline-block border-b-2 border-[#D9B573] pb-2 text-lg font-bold text-[#020659] dark:text-[#D9B573]">
+            FIIs do mesmo setor
+          </h2>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {relacionados.map((r) => (
+              <FiiCard key={r.id} fii={r} />
+            ))}
+          </div>
+        </section>
+      )}
 
-      {/* Placeholder — Proventos */}
-      <section className="mt-8 rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#1D3D59]">
-        <h2 className="mb-4 text-lg font-bold text-[#020659] dark:text-[#D9B573]">
-          Proventos Recentes
-        </h2>
-        <div className="flex h-32 items-center justify-center rounded-lg bg-gray-50 text-gray-400 dark:bg-[#0c1e2e] dark:text-white/40">
-          Proventos em breve
-        </div>
-      </section>
+      {/* Proventos recentes — só existe para os 6 FIIs do seed original */}
+      {proventosFii.length > 0 && (
+        <section className="mt-8 rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#1D3D59]">
+          <h2 className="mb-4 text-lg font-bold text-[#020659] dark:text-[#D9B573]">
+            Proventos Recentes
+          </h2>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+            {proventosFii.map((p) => (
+              <div
+                key={p.id}
+                className="overflow-hidden rounded-lg border-b-[3px] border-[#D9B573] bg-white shadow-sm dark:bg-[#0c1e2e]"
+              >
+                <div className="relative h-32 w-full">
+                  <Image src={p.imagem} alt={p.titulo} fill className="object-cover" />
+                </div>
+                <div className="p-4">
+                  <p className="text-sm font-bold text-[#020659] dark:text-white">
+                    {p.titulo}
+                  </p>
+                  <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-white/40">
+                    {p.mes}
+                  </p>
+                  <p className="mt-1.5 text-lg font-bold text-[#1a7f4b] dark:text-[#3ecb84]">
+                    {p.valor} / cota
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
     </main>
   );
 }
