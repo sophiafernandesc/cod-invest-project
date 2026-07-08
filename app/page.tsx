@@ -17,7 +17,9 @@ export default async function Home({
 }) {
   const { setor, q } = await searchParams;
 
-  let lista = fiis;
+  // Por padrão, mostra só os 8 FIIs mais populares (por nº de cotistas) —
+  // mesma curadoria da versão vanilla, em vez de despejar os 40 de uma vez.
+  let lista = [...fiis].sort((a, b) => b.cotistas - a.cotistas).slice(0, 8);
   let titulo = "Todos os FIIs";
 
   if (q) {
