@@ -2,9 +2,11 @@
 // Esta é a página inicial (rota "/"). No App Router do Next.js,
 // cada arquivo page.tsx dentro de app/ vira uma rota.
 
+import Carrossel from "@/components/Carrossel";
 import FiiCard from "@/components/FiiCard";
 import Link from "next/link";
 import SecaoIndicadores from "@/components/SecaoIndicadores";
+import SecaoNoticias from "@/components/SecaoNoticias";
 import { fiis } from "@/data/fiis";
 
 export default async function Home({
@@ -18,7 +20,8 @@ export default async function Home({
   return (
     <>
       <SecaoIndicadores />
-      <main className="mx-auto max-w-6xl px-4 pb-10 pt-6">
+      <Carrossel />
+      <main className="mx-auto max-w-6xl px-4 pb-10 pt-10">
         <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
           <h2 className="text-xl font-bold text-[#020659]">
             {setor ? `FIIs — ${setor}` : "Todos os FIIs"}
@@ -44,6 +47,7 @@ export default async function Home({
           </div>
         )}
       </main>
+      <SecaoNoticias />
     </>
   );
 }
