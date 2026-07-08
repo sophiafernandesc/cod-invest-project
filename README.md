@@ -22,19 +22,9 @@ O estado final da versão Vanilla JS foi preservado na branch [`v6-vanilla-js`](
 
 ## Telas da Aplicação
 
-<div align="center">
-  <img src="./public/screenshots/home.png" alt="Tela inicial — indicadores, carrossel de destaques e grid de FIIs" width="90%">
-  <br><br>
-  <img src="./public/screenshots/detalhes.png" alt="Página de detalhes — indicadores do fundo e gráfico de Dividend Yield" width="90%">
-  <br><br>
-  <img src="./public/screenshots/dark-mode.png" alt="Tema escuro" width="90%">
-</div>
-
-<!--
-  Adicione os 3 prints em public/screenshots/ com esses nomes
-  (home.png, detalhes.png, dark-mode.png) ou ajuste os caminhos acima.
--->
-
+![Imagem home](public/img/home.png)
+![Imagem detalhes](public/img/detalhes.png)
+![Imagem notícias](public/img/noticias.png)
 ---
 
 ## Funcionalidades
