@@ -38,7 +38,7 @@ export default async function DetalhesFii({
       </Link>
 
       {/* Cabeçalho */}
-      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#1D3D59]">
+      <div className="rounded-xl border-t-4 border-[#D9B573] bg-white p-6 shadow-[0_6px_24px_rgba(0,0,0,0.08)] dark:bg-[#1D3D59] dark:shadow-[0_6px_24px_rgba(0,0,0,0.4)]">
         <AvatarSetor setor={fii.setor} ticker={fii.ticker} tamanho="grande" />
 
         <div className="mt-4 flex items-center gap-3">
@@ -73,7 +73,7 @@ export default async function DetalhesFii({
       {/* Linha 2: Sobre o fundo + Gráfico */}
       <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
         {/* Sobre o Fundo */}
-        <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#1D3D59] lg:col-span-1">
+        <section className="rounded-xl border-t-4 border-[#D9B573] bg-white p-6 shadow-[0_6px_24px_rgba(0,0,0,0.08)] dark:bg-[#1D3D59] dark:shadow-[0_6px_24px_rgba(0,0,0,0.4)] lg:col-span-1">
           <h2 className="mb-4 text-sm font-bold uppercase tracking-wide text-[#020659] dark:text-[#D9B573]">
             Sobre o Fundo
           </h2>
@@ -86,7 +86,7 @@ export default async function DetalhesFii({
         </section>
 
         {/* Gráfico de DY */}
-        <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#1D3D59] lg:col-span-2">
+        <section className="rounded-xl border-t-4 border-[#D9B573] bg-white p-6 shadow-[0_6px_24px_rgba(0,0,0,0.08)] dark:bg-[#1D3D59] dark:shadow-[0_6px_24px_rgba(0,0,0,0.4)] lg:col-span-2">
           <h2 className="mb-4 text-sm font-bold uppercase tracking-wide text-[#020659] dark:text-[#D9B573]">
             Histórico de Dividend Yield (12 meses)
           </h2>
@@ -110,15 +110,15 @@ export default async function DetalhesFii({
 
       {/* Proventos recentes — só existe para os 6 FIIs do seed original */}
       {proventosFii.length > 0 && (
-        <section className="mt-8 rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#1D3D59]">
-          <h2 className="mb-4 text-lg font-bold text-[#020659] dark:text-[#D9B573]">
+        <section className="mt-8">
+          <h2 className="mb-4 inline-block border-b-2 border-[#D9B573] pb-2 text-lg font-bold text-[#020659] dark:text-[#D9B573]">
             Proventos Recentes
           </h2>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
             {proventosFii.map((p) => (
               <div
                 key={p.id}
-                className="overflow-hidden rounded-lg border-b-[3px] border-[#D9B573] bg-white shadow-sm dark:bg-[#0c1e2e]"
+                className="overflow-hidden rounded-lg border-b-[3px] border-[#D9B573] bg-white shadow-[0_4px_15px_rgba(0,0,0,0.07)] dark:bg-[#0c1e2e] dark:shadow-[0_4px_15px_rgba(0,0,0,0.3)]"
               >
                 <div className="relative h-32 w-full">
                   <Image src={p.imagem} alt={p.titulo} fill className="object-cover" />

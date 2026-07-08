@@ -5,12 +5,14 @@ import { noticias } from "@/data/noticias";
 export default function SecaoNoticias() {
   return (
     <section className="mx-auto max-w-6xl px-4 pb-10">
-      <h2 className="mb-4 text-xl font-bold text-[#020659]">Notícias</h2>
+      <h2 className="mb-4 text-xl font-bold text-[#020659] dark:text-[#D9B573]">
+        Notícias
+      </h2>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {noticias.map((n) => (
           <article
             key={n.id}
-            className="group relative h-64 overflow-hidden rounded-xl shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+            className="group relative h-64 overflow-hidden rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.12)] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_14px_32px_rgba(0,0,0,0.18)]"
           >
             <Image
               src={n.imagem}

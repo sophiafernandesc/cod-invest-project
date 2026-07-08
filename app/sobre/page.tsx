@@ -107,7 +107,7 @@ function SobreCard({
   children: React.ReactNode;
 }) {
   return (
-    <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#1D3D59]">
+    <section className="rounded-xl border-t-4 border-[#D9B573] bg-white p-6 shadow-[0_6px_24px_rgba(0,0,0,0.08)] dark:bg-[#1D3D59] dark:shadow-[0_6px_24px_rgba(0,0,0,0.4)]">
       {icone && (
         <h2 className="mb-3 text-sm font-bold uppercase tracking-wide text-[#020659] dark:text-[#D9B573]">
           {icone}

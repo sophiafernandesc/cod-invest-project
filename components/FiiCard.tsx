@@ -11,7 +11,7 @@ export default function FiiCard({ fii }: FiiCardProps) {
   return (
     <Link
       href={`/fiis/${fii.id}`}
-      className="block rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition hover:-translate-y-1 hover:shadow-md dark:border-white/10 dark:bg-[#1D3D59]"
+      className="block rounded-xl border-b-[3px] border-transparent bg-white p-4 shadow-[0_4px_15px_rgba(0,0,0,0.05)] transition duration-300 hover:-translate-y-2 hover:border-[#D9B573] hover:shadow-[0_10px_25px_rgba(0,0,0,0.1)] dark:bg-[#1D3D59] dark:shadow-[0_4px_15px_rgba(0,0,0,0.3)] dark:hover:shadow-[0_10px_25px_rgba(0,0,0,0.4)]"
     >
       <AvatarSetor setor={fii.setor} ticker={fii.ticker} />
 

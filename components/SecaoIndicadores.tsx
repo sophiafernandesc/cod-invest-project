@@ -11,7 +11,7 @@ export default function SecaoIndicadores() {
         {indicadores.map((ind) => (
           <div
             key={ind.id}
-            className="min-w-[160px] flex-1 shrink-0 snap-start rounded-lg border-b-4 border-[#204953] bg-white p-5 text-center shadow-sm dark:bg-[#1D3D59]"
+            className="min-w-[160px] flex-1 shrink-0 snap-start rounded-lg border-b-4 border-[#204953] bg-white p-5 text-center shadow-[0_4px_15px_rgba(0,0,0,0.05)] dark:bg-[#1D3D59] dark:shadow-[0_4px_15px_rgba(0,0,0,0.3)]"
           >
             <strong className="block text-sm font-bold text-[#020659] dark:text-[#D9B573]">
               {ind.nome}
