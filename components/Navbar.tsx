@@ -21,10 +21,18 @@ export default function Navbar() {
   const [fiisAberto, setFiisAberto] = useState(false);
   const [fiisSubmenuAberto, setFiisSubmenuAberto] = useState(false);
   const [perfilAberto, setPerfilAberto] = useState(false);
-  const [tema, setTema] = useState<Tema>(() =>
-    typeof window === "undefined" ? "light" : temaAtual()
-  );
+  // Começa em "light" pra bater com o HTML renderizado no servidor (que não
+  // tem acesso a localStorage/document) — o painel de perfil agora fica
+  // sempre montado no DOM (para animar a transição), então esse valor entra
+  // no HTML inicial e precisa ser idêntico nos dois lados até o efeito abaixo
+  // corrigir para o tema real já no primeiro paint no cliente.
+  const [tema, setTema] = useState<Tema>("light");
   const dropdownRef = useRef<HTMLLIElement>(null);
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- leitura de document só é segura pós-montagem; ver comentário acima
+    setTema(temaAtual());
+  }, []);
 
   useEffect(() => {
     function aoClicarFora(e: MouseEvent) {
