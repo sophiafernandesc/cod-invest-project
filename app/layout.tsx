@@ -7,6 +7,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { SCRIPT_INICIALIZAR_TEMA } from "@/lib/tema";
 
 export const metadata: Metadata = {
   title: "Cod Invest — Consulta de FIIs",
@@ -19,8 +20,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR">
-      <body className="min-h-screen bg-[#F4F6F8] text-gray-800 antialiased">
+    <html lang="pt-BR" suppressHydrationWarning>
+      <head>
+        {/* Aplica o tema salvo antes da hidratação, evitando flash de tema errado */}
+        <script dangerouslySetInnerHTML={{ __html: SCRIPT_INICIALIZAR_TEMA }} />
+      </head>
+      <body className="min-h-screen bg-[#F4F6F8] text-gray-800 antialiased dark:bg-[#010440] dark:text-[#e8e8e8]">
         <Navbar />
         {children}
         <Footer />

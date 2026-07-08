@@ -12,10 +12,28 @@ import { fiis } from "@/data/fiis";
 export default async function Home({
   searchParams,
 }: {
-  searchParams: Promise<{ setor?: string }>;
+  searchParams: Promise<{ setor?: string; q?: string }>;
 }) {
-  const { setor } = await searchParams;
-  const lista = setor ? fiis.filter((fii) => fii.setor === setor) : fiis;
+  const { setor, q } = await searchParams;
+
+  let lista = fiis;
+  let titulo = "Todos os FIIs";
+
+  if (q) {
+    const termo = q.trim().toUpperCase();
+    lista = fiis.filter(
+      (fii) =>
+        fii.ticker.includes(termo) ||
+        fii.setor.toUpperCase().includes(termo) ||
+        fii.gestora.toUpperCase().includes(termo)
+    );
+    titulo = `Resultados para "${q}"`;
+  } else if (setor) {
+    lista = fiis.filter((fii) => fii.setor === setor);
+    titulo = `FIIs — ${setor}`;
+  }
+
+  const filtroAtivo = Boolean(q || setor);
 
   return (
     <>
@@ -23,13 +41,13 @@ export default async function Home({
       <Carrossel />
       <main className="mx-auto max-w-6xl px-4 pb-10 pt-10">
         <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
-          <h2 className="text-xl font-bold text-[#020659]">
-            {setor ? `FIIs — ${setor}` : "Todos os FIIs"}
+          <h2 className="text-xl font-bold text-[#020659] dark:text-[#D9B573]">
+            {titulo}
           </h2>
-          {setor && (
+          {filtroAtivo && (
             <Link
               href="/"
-              className="text-sm font-medium text-[#020659] hover:text-[#D9B573]"
+              className="text-sm font-medium text-[#020659] hover:text-[#D9B573] dark:text-[#D9B573]"
             >
               Ver todos os FIIs
             </Link>

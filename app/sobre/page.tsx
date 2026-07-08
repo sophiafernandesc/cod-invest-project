@@ -7,7 +7,7 @@ export default function Sobre() {
     <main className="mx-auto max-w-3xl px-4 py-10">
       <Link
         href="/"
-        className="mb-8 inline-flex items-center gap-1 text-sm font-medium text-[#020659] hover:text-[#D9B573]"
+        className="mb-8 inline-flex items-center gap-1 text-sm font-medium text-[#020659] hover:text-[#D9B573] dark:text-[#D9B573]"
       >
         ← Voltar
       </Link>
@@ -21,10 +21,10 @@ export default function Sobre() {
           height={59}
           className="mx-auto mb-4"
         />
-        <h1 className="text-3xl font-bold text-[#020659]">
+        <h1 className="text-3xl font-bold text-[#020659] dark:text-[#D9B573]">
           Sobre a <span className="text-[#D9B573]">Cod</span> Invest
         </h1>
-        <p className="mt-4 text-gray-600">
+        <p className="mt-4 text-gray-600 dark:text-white/70">
           O mercado de Fundos Imobiliários (FIIs) exige dados precisos,
           organizados e de fácil acesso. O Cod Invest nasceu para ser a sua
           plataforma definitiva de consulta de cotações, notícias e análises
@@ -107,13 +107,15 @@ function SobreCard({
   children: React.ReactNode;
 }) {
   return (
-    <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+    <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#1D3D59]">
       {icone && (
-        <h2 className="mb-3 text-sm font-bold uppercase tracking-wide text-[#020659]">
+        <h2 className="mb-3 text-sm font-bold uppercase tracking-wide text-[#020659] dark:text-[#D9B573]">
           {icone}
         </h2>
       )}
-      <div className="text-sm leading-relaxed text-gray-600">{children}</div>
+      <div className="text-sm leading-relaxed text-gray-600 dark:text-white/70">
+        {children}
+      </div>
     </section>
   );
 }

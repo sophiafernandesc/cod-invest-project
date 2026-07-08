@@ -25,22 +25,24 @@ export default async function DetalhesFii({
       {/* Voltar */}
       <Link
         href="/"
-        className="mb-6 inline-flex items-center gap-1 text-sm font-medium text-[#020659] hover:text-[#D9B573]"
+        className="mb-6 inline-flex items-center gap-1 text-sm font-medium text-[#020659] hover:text-[#D9B573] dark:text-[#D9B573]"
       >
         ← Voltar
       </Link>
 
       {/* Cabeçalho */}
-      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
+      <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#1D3D59]">
         <AvatarSetor setor={fii.setor} ticker={fii.ticker} tamanho="grande" />
 
         <div className="mt-4 flex items-center gap-3">
-          <h1 className="text-3xl font-bold text-[#020659]">{fii.ticker}</h1>
-          <span className="rounded-full bg-[#1D3D59] px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">
+          <h1 className="text-3xl font-bold text-[#020659] dark:text-[#D9B573]">
+            {fii.ticker}
+          </h1>
+          <span className="rounded-full bg-[#1D3D59] px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white dark:bg-[#020659]">
             {fii.setor}
           </span>
         </div>
-        <p className="mt-2 text-gray-600">{fii.descricao}</p>
+        <p className="mt-2 text-gray-600 dark:text-white/70">{fii.descricao}</p>
 
         {/* Grid de indicadores principais */}
         <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
@@ -64,8 +66,8 @@ export default async function DetalhesFii({
       {/* Linha 2: Sobre o fundo + Gráfico */}
       <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-3">
         {/* Sobre o Fundo */}
-        <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm lg:col-span-1">
-          <h2 className="mb-4 text-sm font-bold uppercase tracking-wide text-[#020659]">
+        <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#1D3D59] lg:col-span-1">
+          <h2 className="mb-4 text-sm font-bold uppercase tracking-wide text-[#020659] dark:text-[#D9B573]">
             Sobre o Fundo
           </h2>
           <dl className="flex flex-col gap-3 text-sm">
@@ -77,11 +79,11 @@ export default async function DetalhesFii({
         </section>
 
         {/* Placeholder — Gráfico de DY (dados já existem em fii.dyHistorico) */}
-        <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm lg:col-span-2">
-          <h2 className="mb-4 text-sm font-bold uppercase tracking-wide text-[#020659]">
+        <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#1D3D59] lg:col-span-2">
+          <h2 className="mb-4 text-sm font-bold uppercase tracking-wide text-[#020659] dark:text-[#D9B573]">
             Histórico de Dividend Yield (12 meses)
           </h2>
-          <div className="flex h-48 items-center justify-center rounded-lg bg-gray-50 text-gray-400">
+          <div className="flex h-48 items-center justify-center rounded-lg bg-gray-50 text-gray-400 dark:bg-[#0c1e2e] dark:text-white/40">
             Gráfico em breve — dados prontos em fii.dyHistorico
           </div>
         </section>
@@ -89,20 +91,20 @@ export default async function DetalhesFii({
 
       {/* Placeholder — FIIs relacionados */}
       <section className="mt-8">
-        <h2 className="mb-4 text-lg font-bold text-[#020659] border-b-2 border-[#D9B573] inline-block pb-2">
+        <h2 className="mb-4 inline-block border-b-2 border-[#D9B573] pb-2 text-lg font-bold text-[#020659] dark:text-[#D9B573]">
           FIIs do mesmo setor
         </h2>
-        <div className="flex h-24 items-center justify-center rounded-lg bg-gray-50 text-gray-400">
+        <div className="flex h-24 items-center justify-center rounded-lg bg-gray-50 text-gray-400 dark:bg-[#0c1e2e] dark:text-white/40">
           Relacionados em breve
         </div>
       </section>
 
       {/* Placeholder — Proventos */}
-      <section className="mt-8 rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-        <h2 className="mb-4 text-lg font-bold text-[#020659]">
+      <section className="mt-8 rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-white/10 dark:bg-[#1D3D59]">
+        <h2 className="mb-4 text-lg font-bold text-[#020659] dark:text-[#D9B573]">
           Proventos Recentes
         </h2>
-        <div className="flex h-32 items-center justify-center rounded-lg bg-gray-50 text-gray-400">
+        <div className="flex h-32 items-center justify-center rounded-lg bg-gray-50 text-gray-400 dark:bg-[#0c1e2e] dark:text-white/40">
           Proventos em breve
         </div>
       </section>
@@ -122,14 +124,14 @@ function Indicador({
   alerta?: boolean;
 }) {
   const corValor = alerta
-    ? "text-red-600"
+    ? "text-red-600 dark:text-red-400"
     : destaque
     ? "text-[#D9B573]"
-    : "text-[#020659]";
+    : "text-[#020659] dark:text-white";
 
   return (
-    <div className="rounded-lg bg-gray-50 p-4">
-      <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+    <div className="rounded-lg bg-gray-50 p-4 dark:bg-[#0c1e2e]">
+      <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-white/50">
         {label}
       </p>
       <p className={`mt-1 text-lg font-bold ${corValor}`}>{valor}</p>
@@ -139,11 +141,11 @@ function Indicador({
 
 function InfoLinha({ label, valor }: { label: string; valor: string }) {
   return (
-    <div className="flex items-center justify-between border-b border-gray-100 pb-3 last:border-0 last:pb-0">
-      <dt className="text-xs font-semibold uppercase tracking-wide text-gray-400">
+    <div className="flex items-center justify-between border-b border-gray-100 pb-3 last:border-0 last:pb-0 dark:border-white/10">
+      <dt className="text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-white/40">
         {label}
       </dt>
-      <dd className="text-sm font-bold text-[#020659]">{valor}</dd>
+      <dd className="text-sm font-bold text-[#020659] dark:text-[#D9B573]">{valor}</dd>
     </div>
   );
 }
