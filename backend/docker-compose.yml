@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:17
+    container_name: codinvest-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: codinvest
+      POSTGRES_USER: codinvest
+      POSTGRES_PASSWORD: codinvest
+    ports:
+      - "5432:5432"
+    volumes:
+      - codinvest-db-data:/var/lib/postgresql/data
+
+volumes:
+  codinvest-db-data:
