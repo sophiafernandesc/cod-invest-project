@@ -24,6 +24,10 @@
 .DS_Store
 *.pem
 
+# IDE (IntelliJ, aplica pro monorepo inteiro — backend/ já tem o seu próprio .gitignore)
+.idea/
+*.iml
+
 # debug
 npm-debug.log*
 yarn-debug.log*
